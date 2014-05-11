@@ -1,0 +1,23 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+#deck {
+  position: relative; }
+
+.slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  display: block;
+  height: 640px;
+  width: 1024px;
+  background-color: #eeeeee; }
+
+footer {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  float: right; }
