@@ -13,6 +13,7 @@ applause.directive('slide', function () {
     template: '<section class="slide" ng-transclude="" ng-show="n === $parent.currentSlide" fit></section>',
     restrict: 'EA',
     transclude: true,
+    replace: true,
     scope: {},
     link: linkFn
   };

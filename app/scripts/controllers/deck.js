@@ -5,7 +5,7 @@ applause.controller('DeckCtrl', function ($scope) {
   $scope.currentSlide = 1;
 
   $scope.lastSlide = function() {
-    return document.querySelectorAll('slide').length;
+    return document.querySelectorAll('.slide').length;
   };
 
   $scope.next = function(){
