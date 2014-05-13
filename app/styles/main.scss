@@ -1,6 +1,7 @@
 //variables
 $slideWidth: 1024px;
 $slideHeight: 640px;
+$progressBar: #4883FF;
 
 body {
   overflow: hidden;
@@ -20,6 +21,14 @@ body {
   height: $slideHeight;
   width: $slideWidth;
   background-color: #eeeeee;
+}
+
+#progress-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 6px;
+  background-color: $progressBar;
 }
 
 footer {

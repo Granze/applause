@@ -15,6 +15,13 @@ body {
   width: 1024px;
   background-color: #eeeeee; }
 
+#progress-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 6px;
+  background-color: #4883FF; }
+
 footer {
   position: absolute;
   right: 20px;

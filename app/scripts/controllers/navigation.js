@@ -1,5 +1,5 @@
 'use strict';
 
-applause.controller('NavigationCtrl', function ($scope) {
+applause.controller('NavigationCtrl', function() {
 
 });

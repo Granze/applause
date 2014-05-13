@@ -25,6 +25,7 @@
 
     <div id="presentation" ng-controller="DeckCtrl">
       <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
+      <progress-bar last="{{lastSlide()}}"/>
     </div>
 
     <!--[if lt IE 9]>
