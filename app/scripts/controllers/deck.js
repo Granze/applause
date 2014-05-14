@@ -4,12 +4,8 @@ applause.controller('DeckCtrl', function ($scope) {
 
   $scope.currentSlide = 1;
 
-  $scope.lastSlide = function() {
-    return document.querySelectorAll('.slide').length;
-  };
-
   $scope.next = function(){
-    if($scope.currentSlide < $scope.lastSlide()) {
+    if($scope.currentSlide < $scope.lastSlide) {
       $scope.currentSlide += 1;
     }
   };

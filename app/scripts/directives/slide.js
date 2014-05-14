@@ -7,6 +7,7 @@ applause.directive('slide', function () {
       linkFn = function(scope) {
         scope.n = count;
         count += 1;
+        scope.$parent.lastSlide = document.getElementsByClassName('slide').length;
       };
 
   return {
