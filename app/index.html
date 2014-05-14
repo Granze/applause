@@ -19,9 +19,6 @@
     <!-- endbuild -->
   </head>
   <body ng-app="applauseApp" ng-keyup="keyup($event)">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <div id="presentation" ng-controller="DeckCtrl">
       <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
@@ -45,6 +42,7 @@
     <script src="scripts/directives/slide.js"></script>
     <script src="scripts/directives/fit.js"></script>
     <script src="scripts/directives/progressbar.js"></script>
+    <script src="scripts/services/appdata.js"></script>
     <!-- endbuild -->
 </body>
 </html>

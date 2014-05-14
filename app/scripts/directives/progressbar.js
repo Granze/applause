@@ -1,10 +1,15 @@
 'use strict';
 
-applause.directive('progressBar', function() {
+applause.directive('progressBar', function(Appdata) {
 
   var linkFn = function (scope, element) {
-        var p = (scope.currentSlide / scope.lastSlide * 100).toFixed(2);
-        element.css('width', p + '%');
+        scope.$watch(function () {
+          return Appdata;
+        }, function (data) {
+          scope.lastSlide = data.slides.length;
+          var p = (scope.currentSlide / scope.lastSlide * 100).toFixed(2);
+          element.css('width', p + '%');
+        }, true);
       };
 
   return {

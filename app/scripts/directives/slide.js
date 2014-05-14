@@ -1,13 +1,13 @@
 'use strict';
 
-applause.directive('slide', function () {
+applause.directive('slide', function (Appdata) {
 
   var count = 1,
 
       linkFn = function(scope) {
         scope.n = count;
+        Appdata.slides.push(count);
         count += 1;
-        scope.$parent.lastSlide = document.getElementsByClassName('slide').length;
       };
 
   return {
