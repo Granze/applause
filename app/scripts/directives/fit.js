@@ -12,10 +12,12 @@ applause.directive('fit', function ($window) {
 
       linkFn = function (scope, element) {
         rule = 'scale(' + scale + ')';
-        element.css('transform', rule);
-        element.css('webkitTransform', rule);
-        element.css('top', fromTop + 'px');
-        element.css('left', fromLeft + 'px');
+        element.css({
+          'transform': rule,
+          'webkitTransform': rule,
+          'top': fromTop + 'px',
+          'left': fromLeft + 'px'
+        });
       };
 
   return {

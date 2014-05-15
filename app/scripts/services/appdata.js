@@ -8,5 +8,5 @@ applause.factory('Appdata', function () {
   return {
     slides: slides,
     currentSlide: currentSlide
-  }
+  };
 });
