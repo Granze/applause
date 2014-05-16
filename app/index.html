@@ -21,7 +21,15 @@
   <body ng-app="applauseApp" ng-keyup="keyup($event)">
 
     <div id="presentation" ng-controller="DeckCtrl">
+
       <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
+
+      <progress-bar/>
+
+      <footer ng-controller="NavigationCtrl">
+        <p class="navigation">Slide: {{currentSlide}}/{{lastSlide}}</p>
+      </footer>
+      
     </div>
 
     <!--[if lt IE 9]>

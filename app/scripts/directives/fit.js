@@ -20,6 +20,8 @@ applause.directive('fit', function ($window) {
         });
       };
 
+  //angular.element($window).on('resize', linkFn);
+
   return {
     restrict: 'A',
     link: linkFn
