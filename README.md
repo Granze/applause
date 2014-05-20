@@ -1,4 +1,4 @@
 # Applause
 HTML presentations powered by AngularJS
 
-##WARNING: this is a early stage project (work in progress)
+##WARNING: this project is at an early stage of development (work in progress)
