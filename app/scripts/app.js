@@ -2,4 +2,4 @@
 /* jshint -W079 */
 'use strict';
 
-var applause = angular.module('applauseApp', []);
+var applause = angular.module('applauseApp', ['ngAnimate']);

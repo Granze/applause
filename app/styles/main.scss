@@ -1,12 +1,18 @@
+@import '../bower_components/normalize-scss/normalize',
+        'theme-default';
+
 //variables
 $slideWidth: 1024px;
 $slideHeight: 640px;
-$progressBar: #4883FF;
+$progressBar: $yellow;
+$slideBg: #eee;
+$mainBg: #2b2b2b;
 
 body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  background: $mainBg;
 }
 
 #deck {
@@ -17,17 +23,27 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  transform-origin: 0 0;
+  opacity: 1;
   height: $slideHeight;
   width: $slideWidth;
-  background-color: #eeeeee;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: $slideBg;
+  &.ng-hide {
+    opacity: 0;
+  }
+  &.ng-hide-remove, &.ng-hide-add {
+    transition: all .6s ease;
+    display: block !important;
+  }
 }
 
 #progress-bar {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 6px;
+  height: 8px;
+  transition: width .5s ease;
   background-color: $progressBar;
 }
 

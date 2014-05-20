@@ -1,0 +1,17 @@
+//variables
+$yellow: #FFCB16;
+
+body {
+  font-size: 150%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  color: $yellow;
+}
+
+h1 {
+  margin: 0 0 .2em 0;
+  font-size: 4em;
+  text-shadow: -1px 0 darken($yellow, 20), 0 1px darken($yellow, 20), 1px 0 darken($yellow, 20), 0 -1px darken($yellow, 20);
+}
