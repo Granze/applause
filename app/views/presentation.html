@@ -1,19 +1,36 @@
 <section id="deck">
+
   <slide>
-    <h1>slide 1</h1>
+    <h1>I'm the main Title!</h1>
     <ul>
       <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad</li>
       <li>Lorem ipsum dolor sit amet</li>
       <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
     </ul>
   </slide>
+
   <slide>
-    <h1>slide 2</h1>
+    <h2>I'm the H2</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae consequuntur corporis deserunt distinctio dolores eos esse ex laboriosam maiores, maxime nisi non officia omnis pariatur quis similique voluptas voluptatem!</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae consequuntur corporis deserunt distinctio dolores eos esse ex laboriosam maiores, maxime nisi non officia omnis pariatur quis similique voluptas voluptatem!</p>
   </slide>
+
   <slide>
-    <h1>slide 3</h1>
-    <h2>The end</h2>
+    <h2>Code...</h2>
+    <div hljs>
+      applause.directive('slide', function (Appdata) {
+
+        return {
+          template: '
+          <section class="slide" ng-transclude="" ng-show="n === $parent.currentSlide" fit></section>',
+          restrict: 'EA',
+          transclude: true,
+          replace: true,
+          scope: {}
+        };
+      });
+    </div>
+    <h3>The end</h3>
   </slide>
+
 </section>
