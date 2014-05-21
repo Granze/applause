@@ -8,9 +8,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 .2em 0;
   text-align: center;
-  text-shadow: 2px 2px 0 darken($yellow, 20), -1px -1px 0 darken($yellow, 20), 1px -1px 0 darken($yellow, 20), -1px 1px 0 darken($yellow, 20), 1px 1px 0 darken($yellow, 20);
   color: $yellow;
   letter-spacing: .1em;
+}
+
+h1, h2, h3 {
+  text-shadow: 2px 2px 0 darken($yellow, 20), -1px -1px 0 darken($yellow, 20), 1px -1px 0 darken($yellow, 20), -1px 1px 0 darken($yellow, 20), 1px 1px 0 darken($yellow, 20);
 }
 
 h1 {
