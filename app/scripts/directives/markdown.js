@@ -1,15 +1,14 @@
 'use strict';
 
-applause.directive('markdown', function () {
+applause.directive('markdown', function ($window) {
 
-  var converter = new Showdown.converter(),
-    linkFn = function (scope, element, attrs) {
-      var html = converter.makeHtml(element.text());
-      element.html(html);
-    };
+  var converter = new $window.Showdown.converter(),
+      linkFn = function (scope, element) {
+        element.html(converter.makeHtml(element.text()));
+      };
 
   return {
-    restrict: 'A',
+    restrict: 'EA',
     link: linkFn
   };
 });

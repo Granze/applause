@@ -30,7 +30,7 @@
       <footer ng-controller="NavigationCtrl">
         <p class="navigation">Slide: {{currentSlide}}/{{lastSlide}}</p>
       </footer>
-      
+
     </div>
 
     <!--[if lt IE 9]>
@@ -48,6 +48,7 @@
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="bower_components/showdown/src/showdown.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/deck.js"></script>
     <script src="scripts/controllers/navigation.js"></script>
@@ -55,7 +56,6 @@
     <script src="scripts/directives/fit.js"></script>
     <script src="scripts/directives/progressbar.js"></script>
     <script src="scripts/services/appdata.js"></script>
-    <script src="bower_components/showdown/src/showdown.js"></script>
     <script src="scripts/directives/markdown.js"></script>
     <!-- endbuild -->
 </body>
