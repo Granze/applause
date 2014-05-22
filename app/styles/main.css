@@ -356,6 +356,12 @@ h2 {
 h3 {
   font-size: 2em; }
 
+.left {
+  text-align: left; }
+
+.right {
+  text-align: right; }
+
 /*
 
 Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
