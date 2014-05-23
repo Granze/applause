@@ -1,6 +1,6 @@
 'use strict';
 
-applause.directive('bgImg', function () {
+applause.directive('bgImg', function ($filter) {
 
   var linkFn = function (scope, element, attrs) {
         element.css({
@@ -8,7 +8,8 @@ applause.directive('bgImg', function () {
           'background-size': 'cover'
         });
         if(attrs.credits) {
-          var credits = '<div class="credits">Photo credits: ' + attrs.credits + '</div>';
+          var creditsTxt = $filter('linky')(attrs.credits),
+              credits = '<div class="credits">Photo credits: ' + creditsTxt + '</div>';
           element.append(credits);
         }
       };
