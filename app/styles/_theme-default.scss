@@ -1,4 +1,5 @@
 //variables
+$almostWhite: #eee;
 $yellow: #FFCB16;
 
 body {
@@ -28,6 +29,13 @@ h3 {
   font-size: 2em;
 }
 
+.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 .left {
   text-align: left;
 }
@@ -36,6 +44,36 @@ h3 {
   text-align: right;
 }
 
+.light-text {
+  color: $almostWhite;
+}
+
+.credits {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  padding: 0 20px 0 10px;
+  font-size: .8em;
+  color: $almostWhite;
+  background-color: rgba(#000, .6);
+  a {
+    color: #ccc;
+  }
+}
+
+blockquote {
+  position: relative;
+  padding: 10px 0 0 40px;
+  &:before {
+    content: '“';
+    font-size: 7em;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: darken($almostWhite, 20);
+    font-family: Georgia, serif;
+  }
+}
 /*
 
 Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
@@ -43,10 +81,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
   padding: 0.5em;
   background: #23241f;
   color: #f8f8f2;
+  text-align: left;
 }
 
 .hljs-tag {

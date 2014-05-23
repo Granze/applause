@@ -5,22 +5,27 @@
     <li>Lorem ipsum dolor sit amet</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
   </ul>
+  <ol>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </ol>
 </slide>
 
 <slide>
   <h2>I'm the H2</h2>
+  <h3>...and I'm the H3</h3>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae consequuntur corporis deserunt distinctio dolores eos esse ex laboriosam maiores, maxime nisi non officia omnis pariatur quis similique voluptas voluptatem!</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae consequuntur corporis deserunt distinctio dolores eos esse ex laboriosam maiores, maxime nisi non officia omnis pariatur quis similique voluptas voluptatem!</p>
+  <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit</blockquote>
 </slide>
 
 <slide>
-  <h2>Code...</h2>
+  <h2>Code highlighting</h2>
   <div hljs>
     applause.directive('slide', function (Appdata) {
-
       return {
-        template: '
-        <section class="slide" ng-transclude="" ng-show="n === $parent.currentSlide" fit></section>',
+        template: '<section class="slide" ng-transclude=""></section>',
         restrict: 'EA',
         transclude: true,
         replace: true,
@@ -28,17 +33,28 @@
       };
     });
   </div>
+  <p>You just need to add the "hljs" attribute to your element: <code>&lt;div hljs&gt;your code here&lt;/div&gt;</code></p>
 </slide>
 
 <slide markdown>
 
   #Markdown content
+
+  write your slide in markdown if you like it
+
 - list item **one**
 - list item *two*
 
 
 </slide>
 
-<slide bg-img="http://goo.gl/QN2PHb">
+<slide bg-img="http://goo.gl/QN2PHb" credits="http://goo.gl/QN2PHb">
   <h2 class="left">Auto fitting images</h2>
+  <p class="light-text">Add the "bg-img" attribute to your slide element:<br><code>&lt;slide bg-img="path/to/image"&gt;</code><br>without worrying about the image size.</p>
+</slide>
+
+<slide>
+  <h1>Do you like that?</h1>
+  <img class="center" src="images/slow-clap.gif" alt=""/>
+  <p class="center">Follow me on twitter <a href="https://twitter.com/granze">@granze</a></p>
 </slide>

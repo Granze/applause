@@ -356,11 +356,43 @@ h2 {
 h3 {
   font-size: 2em; }
 
+.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center; }
+
 .left {
   text-align: left; }
 
 .right {
   text-align: right; }
+
+.light-text {
+  color: #eee; }
+
+.credits {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  padding: 0 20px 0 10px;
+  font-size: 0.8em;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.6); }
+  .credits a {
+    color: #ccc; }
+
+blockquote {
+  position: relative;
+  padding: 10px 0 0 40px; }
+  blockquote:before {
+    content: '“';
+    font-size: 7em;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #bbbbbb;
+    font-family: Georgia, serif; }
 
 /*
 
@@ -368,10 +400,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 */
 .hljs {
-  display: inline-block;
+  display: block;
   padding: 0.5em;
   background: #23241f;
-  color: #f8f8f2; }
+  color: #f8f8f2;
+  text-align: left; }
 
 .hljs-tag {
   color: #f8f8f2; }

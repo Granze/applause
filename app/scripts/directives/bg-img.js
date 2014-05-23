@@ -7,6 +7,10 @@ applause.directive('bgImg', function () {
           'background': 'transparent url(' + attrs.bgImg + ') no-repeat 0 0',
           'background-size': 'cover'
         });
+        if(attrs.credits) {
+          var credits = '<div class="credits">Photo credits: ' + attrs.credits + '</div>';
+          element.append(credits);
+        }
       };
 
   return {
