@@ -23,6 +23,10 @@
 
     <div id="presentation" ng-controller="DeckCtrl">
 
+      <form ng-submit="goTo()" ng-show="showGoTo" id="go-to" name="goto">
+        <label>Go to: <input ng-model="goToSlide" type="text" placeholder="slide" autofocus=""></label>
+      </form>
+
       <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
 
       <footer>

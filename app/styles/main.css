@@ -338,14 +338,17 @@ td, th {
 body {
   font-size: 120%; }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   margin: 0 0 0.2em 0;
   text-align: center;
   color: #FFCB16;
-  letter-spacing: 0.1em; }
-
-h1, h2, h3 {
+  letter-spacing: 0.1em;
   text-shadow: 2px 2px 0 #af8600, -1px -1px 0 #af8600, 1px -1px 0 #af8600, -1px 1px 0 #af8600, 1px 1px 0 #af8600; }
+
+h4, h5, h6 {
+  margin: 0 0 0.2em 0;
+  text-align: center;
+  color: #af8600; }
 
 h1 {
   font-size: 4em; }
@@ -381,6 +384,18 @@ h3 {
   background-color: rgba(0, 0, 0, 0.6); }
   .credits a {
     color: #ccc; }
+
+.media {
+  padding: 10px;
+  border: 1px solid #d4d4d4;
+  background-color: #fff; }
+
+code {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.3); }
+  code.light {
+    background-color: rgba(0, 0, 0, 0.2); }
 
 blockquote {
   position: relative;
@@ -511,6 +526,35 @@ body {
   .slide.ng-hide-remove, .slide.ng-hide-add {
     transition: all 0.6s ease;
     display: block !important; }
+
+#go-to {
+  z-index: 90;
+  width: 160px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -80px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid rgba(102, 102, 102, 0.6);
+  border-radius: 0 0 4px 4px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.6); }
+  #go-to.ng-hide {
+    top: -100px; }
+  #go-to.ng-hide-remove, #go-to.ng-hide-add {
+    transition: all 0.4s ease;
+    display: block !important; }
+  #go-to input {
+    width: 44px;
+    margin-left: 4px;
+    padding: 1px 4px;
+    color: #333;
+    border: 1px solid #eee; }
+  #go-to button {
+    color: #000;
+    border: 1px solid #eee; }
 
 #progress-bar {
   z-index: 90;

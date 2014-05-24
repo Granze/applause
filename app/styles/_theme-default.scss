@@ -6,15 +6,18 @@ body {
   font-size: 120%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   margin: 0 0 .2em 0;
   text-align: center;
   color: $yellow;
   letter-spacing: .1em;
+  text-shadow: 2px 2px 0 darken($yellow, 20), -1px -1px 0 darken($yellow, 20), 1px -1px 0 darken($yellow, 20), -1px 1px 0 darken($yellow, 20), 1px 1px 0 darken($yellow, 20);
 }
 
-h1, h2, h3 {
-  text-shadow: 2px 2px 0 darken($yellow, 20), -1px -1px 0 darken($yellow, 20), 1px -1px 0 darken($yellow, 20), -1px 1px 0 darken($yellow, 20), 1px 1px 0 darken($yellow, 20);
+h4, h5, h6 {
+  margin: 0 0 .2em 0;
+  text-align: center;
+  color: darken($yellow, 20);
 }
 
 h1 {
@@ -58,6 +61,21 @@ h3 {
   background-color: rgba(#000, .6);
   a {
     color: #ccc;
+  }
+}
+
+.media {
+  padding: 10px;
+  border: 1px solid darken($almostWhite, 10);
+  background-color: #fff;
+}
+
+code {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, .3);
+  &.light {
+    background-color: rgba(0, 0, 0, .2);
   }
 }
 

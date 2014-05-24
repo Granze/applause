@@ -1,6 +1,7 @@
 @import '../bower_components/normalize-scss/normalize',
         'theme-default';
 
+
 //variables
 $slideWidth: 1024px;
 $slideHeight: 640px;
@@ -36,6 +37,40 @@ body {
   &.ng-hide-remove, &.ng-hide-add {
     transition: all .6s ease;
     display: block !important;
+  }
+}
+
+#go-to {
+  z-index: 90;
+  width: 160px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -80px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid lighten(rgba(#000, .6), 40);
+  border-radius: 0 0 4px 4px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(#000, .6);
+  &.ng-hide {
+    top: -100px;
+  }
+  &.ng-hide-remove, &.ng-hide-add {
+    transition: all .4s ease;
+    display: block !important;
+  }
+  input {
+    width: 44px;
+    margin-left: 4px;
+    padding: 1px 4px;
+    color: #333;
+    border: 1px solid $almostWhite;
+  }
+  button {
+    color: #000;
+    border: 1px solid $almostWhite;
   }
 }
 

@@ -12,7 +12,7 @@ applause.directive('slide', function (Appdata) {
 
   return {
     template: '<section class="slide" ng-transclude="" ng-show="n === $parent.currentSlide" fit></section>',
-    restrict: 'EA',
+    restrict: 'E',
     transclude: true,
     replace: true,
     scope: {},

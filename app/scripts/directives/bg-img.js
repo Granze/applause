@@ -2,20 +2,26 @@
 
 applause.directive('bgImg', function ($filter) {
 
-  var linkFn = function (scope, element, attrs) {
-        element.css({
-          'background': 'transparent url(' + attrs.bgImg + ') no-repeat 0 0',
-          'background-size': 'cover'
-        });
-        if(attrs.credits) {
-          var creditsTxt = $filter('linky')(attrs.credits),
-              credits = '<div class="credits">Photo credits: ' + creditsTxt + '</div>';
-          element.append(credits);
-        }
-      };
+  return function (scope, element, attrs) {
+    var imgUrl = '';
 
-  return {
-    restrict: 'A',
-    link: linkFn
+    if (!/^(f|ht)tps?:\/\//i.test(attrs.bgImg)) {
+      imgUrl = '/images/' + attrs.bgImg;
+    } else {
+      imgUrl = attrs.bgImg;
+    }
+
+    element.css({
+      'background': 'transparent url(' + imgUrl + ') no-repeat 0 0',
+      'background-size': 'cover'
+    });
+
+    if (attrs.credits) {
+      var creditsTxt = $filter('linky')(attrs.credits, '_blank'),
+        credits = '<div class="credits">Photo credits: ' + creditsTxt + '</div>';
+      element.append(credits);
+    }
+
   };
+
 });

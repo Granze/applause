@@ -2,7 +2,11 @@
 
 applause.controller('DeckCtrl', function ($scope, Appdata) {
 
-  $scope.currentSlide = 1;
+  $scope.$watch(function () {
+    return Appdata;
+  }, function (data) {
+    $scope.currentSlide = data.currentSlide;
+  }, true);
 
   $scope.$watch(function () {
     return Appdata;
@@ -12,20 +16,27 @@ applause.controller('DeckCtrl', function ($scope, Appdata) {
 
   $scope.next = function(){
     if($scope.currentSlide < $scope.lastSlide) {
-      $scope.currentSlide += 1;
-      Appdata.currentSlide = $scope.currentSlide;
+      Appdata.currentSlide += 1;
     }
   };
 
   $scope.prev = function(){
     if($scope.currentSlide > 1) {
-      $scope.currentSlide -= 1;
-      Appdata.currentSlide = $scope.currentSlide;
+      Appdata.currentSlide -= 1;
     }
+  };
+
+  $scope.goTo = function () {
+    Appdata.currentSlide = parseInt($scope.goToSlide);
+    $scope.goToSlide = '';
+    $scope.showGoTo = false;
   };
 
   $scope.$parent.keyup = function(keyEvent) {
     switch(keyEvent.keyCode) {
+      case 27:
+        $scope.showGoTo = !$scope.showGoTo;
+        break;
       case 37:
         $scope.prev();
         break;
