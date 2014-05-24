@@ -15,13 +15,13 @@ applause.controller('DeckCtrl', function ($scope, Appdata) {
   }, true);
 
   $scope.next = function(){
-    if($scope.currentSlide < $scope.lastSlide) {
+    if(Appdata.currentSlide < $scope.lastSlide) {
       Appdata.currentSlide += 1;
     }
   };
 
   $scope.prev = function(){
-    if($scope.currentSlide > 1) {
+    if(Appdata.currentSlide > 1) {
       Appdata.currentSlide -= 1;
     }
   };
