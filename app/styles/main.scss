@@ -9,6 +9,10 @@ $progressBar: $yellow;
 $almostWhite: #eee;
 $mainBg: #2b2b2b;
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
   overflow: hidden;
   margin: 0;
@@ -29,7 +33,6 @@ body {
   height: $slideHeight;
   width: $slideWidth;
   padding: 30px;
-  box-sizing: border-box;
   background-color: $almostWhite;
   &.ng-hide {
     opacity: 0;
@@ -62,14 +65,10 @@ body {
     display: block !important;
   }
   input {
-    width: 44px;
+    width: 54px;
     margin-left: 4px;
     padding: 1px 4px;
     color: #333;
-    border: 1px solid $almostWhite;
-  }
-  button {
-    color: #000;
     border: 1px solid $almostWhite;
   }
 }

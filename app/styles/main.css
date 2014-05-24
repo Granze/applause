@@ -385,17 +385,24 @@ h3 {
   .credits a {
     color: #ccc; }
 
+ul.unstyled {
+  list-style: none; }
+ul li {
+  line-height: 1.8em; }
+
 .media {
   padding: 10px;
   border: 1px solid #d4d4d4;
   background-color: #fff; }
 
-code {
+code.inline {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-size: 0.8em;
   padding: 2px 7px;
+  color: #333;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.3); }
-  code.light {
-    background-color: rgba(0, 0, 0, 0.2); }
+  border: 1px solid #ddd;
+  background-color: #f8f8f8; }
 
 blockquote {
   position: relative;
@@ -410,9 +417,7 @@ blockquote {
     font-family: Georgia, serif; }
 
 /*
-
 Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
-
 */
 .hljs {
   display: block;
@@ -501,6 +506,37 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .php .xml {
   opacity: 0.5; }
 
+/**
+ * Keys styles based on KEYS.css
+ *
+ * Author:  Michael Hüneburg
+ * Website: http://michaelhue.com/keyscss
+ * License: MIT License (see LICENSE.txt)
+ */
+.key {
+  display: inline-block;
+  min-width: 1em;
+  padding: 0.2em 0.3em;
+  font: normal .85em/1 "Lucida Grande", Lucida, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.3em;
+  border: none;
+  cursor: default; }
+  .key.dark-keys {
+    background: #505050;
+    color: #fafafa;
+    text-shadow: -1px -1px 0 #464646;
+    box-shadow: inset 0 0 1px #969696, inset 0 -0.05em 0.4em #505050, 0 0.1em 0 #1e1e1e, 0 0.1em 0.1em rgba(0, 0, 0, 0.3); }
+  .key.light-keys {
+    background: #fafafa;
+    color: #323232;
+    text-shadow: 0 0 2px white;
+    box-shadow: inset 0 0 1px white, inset 0 0 0.4em #c8c8c8, 0 0.1em 0 #828282, 0 0.11em 0 rgba(0, 0, 0, 0.3), 0 0.1em 0.11em rgba(0, 0, 0, 0.8); }
+
+*, *:before, *:after {
+  box-sizing: border-box; }
+
 body {
   overflow: hidden;
   margin: 0;
@@ -519,7 +555,6 @@ body {
   height: 640px;
   width: 1024px;
   padding: 30px;
-  box-sizing: border-box;
   background-color: #eee; }
   .slide.ng-hide {
     opacity: 0; }
@@ -547,13 +582,10 @@ body {
     transition: all 0.4s ease;
     display: block !important; }
   #go-to input {
-    width: 44px;
+    width: 54px;
     margin-left: 4px;
     padding: 1px 4px;
     color: #333;
-    border: 1px solid #eee; }
-  #go-to button {
-    color: #000;
     border: 1px solid #eee; }
 
 #progress-bar {
