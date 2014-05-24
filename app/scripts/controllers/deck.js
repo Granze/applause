@@ -26,12 +26,6 @@ applause.controller('DeckCtrl', function ($scope, Appdata) {
     }
   };
 
-  $scope.goTo = function () {
-    Appdata.currentSlide = parseInt($scope.goToSlide);
-    $scope.goToSlide = '';
-    $scope.showGoTo = false;
-  };
-
   $scope.$parent.keyup = function(keyEvent) {
     switch(keyEvent.keyCode) {
       case 27:
