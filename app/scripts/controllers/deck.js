@@ -6,11 +6,6 @@ applause.controller('DeckCtrl', function ($scope, Appdata) {
     return Appdata;
   }, function (data) {
     $scope.currentSlide = data.currentSlide;
-  }, true);
-
-  $scope.$watch(function () {
-    return Appdata;
-  }, function (data) {
     $scope.lastSlide = data.slides.length;
   }, true);
 
