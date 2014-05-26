@@ -1,20 +1,17 @@
 'use strict';
 
-applause.directive('progressBar', function(Appdata) {
+applause.directive('progressBar', function () {
 
   var linkFn = function (scope, element) {
-        scope.$watch(function () {
-          return Appdata;
-        }, function (data) {
-          scope.lastSlide = data.slides.length;
-          var p = (scope.currentSlide / scope.lastSlide * 100).toFixed(2);
-          element.css('width', p + '%');
-        }, true);
-      };
+    scope.$watch(function (data) {
+      var p = (data.currentSlide / data.lastSlide * 100).toFixed(2);
+      element.css('width', p + '%');
+    });
+  };
 
   return {
     template: '<div id="progress-bar"></div>',
-    restrict: 'EA',
+    restrict: 'E',
     replace: true,
     link: linkFn
   };
