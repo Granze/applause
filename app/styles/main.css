@@ -598,17 +598,12 @@ body {
   transition: width 0.5s ease;
   background-color: #FFCB16; }
 
-footer {
+#slide-count {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: #eee; }
-  footer .navigation {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    margin: 0;
-    padding: 5px 10px;
-    letter-spacing: 0.2em;
-    background-color: rgba(255, 255, 255, 0.1); }
+  right: 20px;
+  bottom: 20px;
+  margin: 0;
+  padding: 5px 10px;
+  letter-spacing: 0.2em;
+  color: #eee;
+  background-color: #454545; }
