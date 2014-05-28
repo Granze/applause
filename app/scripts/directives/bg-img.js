@@ -6,7 +6,7 @@ applause.directive('bgImg', function ($filter) {
     var imgUrl = '';
 
     if (!/^(f|ht)tps?:\/\//i.test(attrs.bgImg)) {
-      imgUrl = '/images/' + attrs.bgImg;
+      imgUrl = 'images/' + attrs.bgImg;
     } else {
       imgUrl = attrs.bgImg;
     }
