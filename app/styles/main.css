@@ -338,7 +338,7 @@ td, th {
 body {
   font-size: 120%; }
 
-h1, h2, h3 {
+h1, h2 {
   margin: 0 0 0.2em 0;
   text-align: center;
   color: #FFCB16;
@@ -357,7 +357,10 @@ h2 {
   font-size: 3em; }
 
 h3 {
-  font-size: 2em; }
+  font-size: 2em;
+  color: #FFCB16;
+  text-align: center;
+  text-shadow: 1px 1px 0 #af8600, -1px -1px 0 #af8600, 1px -1px 0 #af8600, -1px 1px 0 #af8600, 1px 1px 0 #af8600; }
 
 .center {
   display: block;
@@ -607,3 +610,10 @@ body {
   letter-spacing: 0.2em;
   color: #eee;
   background-color: #454545; }
+
+.abs-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0; }

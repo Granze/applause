@@ -6,7 +6,7 @@ body {
   font-size: 120%;
 }
 
-h1, h2, h3 {
+h1, h2 {
   margin: 0 0 .2em 0;
   text-align: center;
   color: $yellow;
@@ -30,6 +30,9 @@ h2 {
 
 h3 {
   font-size: 2em;
+  color: $yellow;
+  text-align: center;
+  text-shadow: 1px 1px 0 darken($yellow, 20), -1px -1px 0 darken($yellow, 20), 1px -1px 0 darken($yellow, 20), -1px 1px 0 darken($yellow, 20), 1px 1px 0 darken($yellow, 20);
 }
 
 .center {
