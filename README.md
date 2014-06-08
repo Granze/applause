@@ -9,3 +9,5 @@ HTML presentations powered by AngularJS
 - auto fitting background images
 - credits + autolink
 - clean and simple default theme
+
+##Demo: http://granze.github.io/applause/
