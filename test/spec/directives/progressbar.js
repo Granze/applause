@@ -13,8 +13,5 @@ describe('Directive: progressBar', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<progress-bar></progress-bar>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the progressBar directive');
   }));
 });
