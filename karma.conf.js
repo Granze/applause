@@ -18,12 +18,16 @@ module.exports = function(config) {
       'app/bower_components/angular-highlightjs/angular-highlightjs.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
+
     // list of files / patterns to exclude
     exclude: [],
+
+    preprocessors: {
+      'app/scripts/**/*.js': ['coverage']
+    },
 
     // web server port
     port: 8080,
@@ -50,6 +54,13 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    }
   });
 };

@@ -2,7 +2,7 @@
 
 applause.directive('fit', function ($window) {
 
-  var slide = document.querySelector('.slide'),
+  var slide = $window.document.querySelector('.slide'),
       x = $window.innerWidth / slide.clientWidth,
       y = $window.innerHeight / slide.clientHeight,
       scale = Math.min(x, y),

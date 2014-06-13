@@ -16,6 +16,6 @@ describe('Controller: DeckCtrl', function () {
     });
   }));
 
-  it('inrement by 1', function () {
+  it('', function () {
   });
 });
