@@ -28,18 +28,15 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  opacity: 1;
+  opacity: 0;
   overflow: hidden;
   height: $slideHeight;
   width: $slideWidth;
   padding: 30px;
   background-color: $almostWhite;
-  &.ng-hide {
-    opacity: 0;
-  }
-  &.ng-hide-remove, &.ng-hide-add {
-    transition: all .6s ease;
-    display: block !important;
+  transition: all .6s ease;
+  &.current {
+    opacity: 1;
   }
 }
 

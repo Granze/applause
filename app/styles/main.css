@@ -553,17 +553,15 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  opacity: 1;
+  opacity: 0;
   overflow: hidden;
   height: 640px;
   width: 1024px;
   padding: 30px;
-  background-color: #eee; }
-  .slide.ng-hide {
-    opacity: 0; }
-  .slide.ng-hide-remove, .slide.ng-hide-add {
-    transition: all 0.6s ease;
-    display: block !important; }
+  background-color: #eee;
+  transition: all 0.6s ease; }
+  .slide.current {
+    opacity: 1; }
 
 #go-to {
   z-index: 90;
