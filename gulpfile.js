@@ -4,21 +4,20 @@ var gulp = require('gulp'),
     plug = require('gulp-load-plugins')(),
     wiredep = require('wiredep').stream,
     html2js = require('gulp-ng-html2js'),
-    buildFolder = 'dist',
+    buildFolder = 'presentation',
     srcPaths = {
-      scss: ['app/styles/main.scss'],
-      css: ['app/styles/main.css'],
-      scripts: ['app/scripts/{,*/}*.js'],
+      scss: 'app/styles/*.scss',
+      css: 'app/styles/main.css',
+      scripts: 'app/scripts/{,*/}*.js',
       images: 'app/images/*.*',
-      html: ['app/index.html','app/views/presentation.html'],
+      html: 'app/index.html',
       partials: 'app/views/*.html',
-      templates: 'app/templates/*.js',
       bower: 'app/bower_components'
     },
     destPaths = {
-      styles: [buildFolder + '/styles/'],
-      scripts: [buildFolder + '/scripts/'],
-      images: buildFolder + '/images/'
+      styles: buildFolder + '/styles',
+      scripts: buildFolder + '/scripts',
+      images: buildFolder + '/images'
     };
 
 gulp.task('clean', function() {
@@ -34,7 +33,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(srcPaths.scripts, 'gulpfile.js')
+  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/presentation.js'])
     .pipe(plug.jshint('.jshintrc'))
     .pipe(plug.jshint.reporter(require('jshint-stylish')));
 });
@@ -43,6 +42,12 @@ gulp.task('images', function() {
   return gulp.src(srcPaths.images)
     .pipe(plug.cache(plug.imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest(destPaths.images));
+});
+
+gulp.task('templates', function() {
+  return gulp.src(srcPaths.partials)
+    .pipe(html2js({moduleName: 'applauseTemplates', prefix: 'views/'}))
+    .pipe(gulp.dest('app/scripts/templates'));
 });
 
 gulp.task('wiredep', function () {
@@ -61,8 +66,7 @@ gulp.task('wiredep', function () {
 
 gulp.task('prepare', ['styles', 'scripts'], function() {
   var jsFilter = plug.filter('**/*.js'),
-      cssFilter = plug.filter('**/*.css'),
-      partialFilter = plug.filter(srcPaths.partials);
+      cssFilter = plug.filter('**/*.css');
 
   return gulp.src('app/*.html')
     .pipe(plug.useref.assets('app'))
@@ -73,9 +77,6 @@ gulp.task('prepare', ['styles', 'scripts'], function() {
     .pipe(cssFilter)
     .pipe(plug.csso())
     .pipe(cssFilter.restore())
-    .pipe(partialFilter)
-    .pipe(html2js({moduleName: 'appTemplates', prefix: '/templates'}))
-    .pipe(partialFilter.restore())
     .pipe(plug.useref.restore())
     .pipe(plug.useref())
     .pipe(gulp.dest(buildFolder));
@@ -92,15 +93,15 @@ gulp.task('connect', function() {
   require('http').createServer(app)
     .listen(9000)
     .on('listening', function () {
-      console.log('Started connect web server on http://localhost:9000');
+      console.log('Presentation started on http://localhost:9000');
     });
 });
 
-gulp.task('serve', ['connect', 'styles'], function () {
+gulp.task('serve', ['connect', 'styles', 'templates'], function () {
   require('opn')('http://localhost:9000');
 });
 
-gulp.task('build', ['prepare', 'images']);
+gulp.task('build', ['prepare', 'images', 'templates']);
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
@@ -113,13 +114,15 @@ gulp.task('watch', ['connect', 'serve'], function () {
     srcPaths.html,
     srcPaths.css,
     srcPaths.scripts,
-    srcPaths.images
+    srcPaths.images,
+    srcPaths.partials
   ]).on('change', function (file) {
     server.changed(file.path);
   });
 
-  gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/scripts/**/*.js', ['scripts']);
-  gulp.watch('app/images/**/*', ['images']);
+  gulp.watch(srcPaths.scss, ['styles']);
+  gulp.watch(srcPaths.scripts, ['scripts']);
+  gulp.watch(srcPaths.images, ['images']);
+  gulp.watch(srcPaths.partials, ['templates']);
   gulp.watch('bower.json', ['wiredep']);
 });

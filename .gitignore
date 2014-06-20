@@ -3,4 +3,6 @@ node_modules
 .sass-cache
 .idea
 app/bower_components
+app/styles/*.css
 coverage
+presentation
