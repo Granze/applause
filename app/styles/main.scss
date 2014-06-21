@@ -26,9 +26,8 @@ body {
 
 .slide {
   position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+  top: 50%;
+  left: -50%;
   overflow: hidden;
   height: $slideHeight;
   width: $slideWidth;
@@ -36,7 +35,7 @@ body {
   background-color: $almostWhite;
   transition: all .6s ease;
   &.current {
-    opacity: 1;
+    left: 50%;
   }
 }
 

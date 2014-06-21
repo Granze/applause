@@ -8,17 +8,13 @@ applause.directive('fit', function ($window) {
         x = $window.innerWidth / slide.clientWidth,
         y = $window.innerHeight / slide.clientHeight,
         scale = Math.min(x, y),
-        fromTop = ($window.innerHeight - (slide.clientHeight * scale)) / 2,
-        fromLeft = ($window.innerWidth - (slide.clientWidth * scale)) / 2,
-        rule = 'scale(' + scale + ')';
+        rule = 'scale(' + scale + ') translate(-50%, -50%)';
 
       element.css({
         'transformOrigin': '0 0',
         'webkitTransformOrigin': '0 0',
         'transform': rule,
-        'webkitTransform': rule,
-        'top': fromTop + 'px',
-        'left': fromLeft + 'px'
+        'webkitTransform': rule
       });
     };
 
