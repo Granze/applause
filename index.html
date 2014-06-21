@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Applause!</title>
+    <meta name="description" content="HTML presentations powered by Angular JS">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/vendor.css"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+  </head>
+  <body ng-app="applauseApp" ng-keyup="keyup($event)">
+
+    <div id="presentation" ng-controller="DeckCtrl">
+
+      <goto></goto>
+
+      <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
+
+      <div id="slide-count">{{currentSlide}}/{{lastSlide}}</div>
+
+      <progress-bar></progress-bar>
+
+    </div>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
