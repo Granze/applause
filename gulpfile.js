@@ -87,14 +87,9 @@ gulp.task('connect', function() {
   var app = connect()
     .use(require('connect-livereload')({ port: 35729 }))
     .use(connect.static('app'))
-    .use(connect.static('.tmp'))
     .use(connect.directory('app'));
 
-  require('http').createServer(app)
-    .listen(9000)
-    .on('listening', function () {
-      console.log('Presentation started on http://localhost:9000');
-    });
+  require('http').createServer(app).listen(9000);
 });
 
 gulp.task('serve', ['connect', 'styles', 'templates'], function () {
@@ -108,7 +103,7 @@ gulp.task('default', ['clean'], function () {
 });
 
 gulp.task('watch', ['connect', 'serve'], function () {
-  var server = require('connect-livereload')();
+  var server = plug.livereload();
 
   gulp.watch([
     srcPaths.html,
