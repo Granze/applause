@@ -33,7 +33,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/presentation.js'])
+  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/templates/presentation.js'])
     .pipe(plug.jshint('.jshintrc'))
     .pipe(plug.jshint.reporter(require('jshint-stylish')));
 });

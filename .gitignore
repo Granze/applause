@@ -1,8 +1,8 @@
 node_modules
 .tmp
-.sass-cache
 .idea
 app/bower_components
+app/scripts/templates
 app/styles/*.css
 coverage
-presentation
+dist
