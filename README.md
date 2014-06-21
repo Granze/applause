@@ -16,7 +16,7 @@ Anyway, if you want to try it:
 
 - clone the project and `cd` into the folder
 - from your terminal run `npm install && bower install`
-- run `grunt serve` to launch the server
+- run `gulp watch` to launch the local server and watch your files
 - start creating your slides editing app/views/presentation.html
 
-When you are done editing, run `grunt build`, this will create a "dist" folder. This is your final product. Enjoy!
+When you are done editing, run `gulp`, this will create a "presentation" folder with your slides. Enjoy!
