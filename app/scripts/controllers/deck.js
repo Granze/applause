@@ -2,6 +2,11 @@
 
 applause.controller('DeckCtrl', function ($scope, Appdata) {
 
+  var config = Appdata.getConfig();
+
+  $scope.isLoadingBarVisible = config.loadingBar;
+  $scope.isSlideCountVisible = config.slideCount;
+
   $scope.$watch(function () {
     return Appdata;
   }, function (data) {

@@ -23,9 +23,9 @@
 
       <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
 
-      <div id="slide-count">{{currentSlide}}/{{lastSlide}}</div>
+      <div id="slide-count" ng-show="{{isSlideCountVisible}}">{{currentSlide}}/{{lastSlide}}</div>
 
-      <progress-bar></progress-bar>
+      <progress-bar ng-show="{{isLoadingBarVisible}}"></progress-bar>
 
     </div>
 
@@ -47,12 +47,14 @@
     <!-- build:js scripts/scripts.js -->
     <script src="bower_components/showdown/src/showdown.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
     <script src="scripts/templates/presentation.js"></script>
     <script src="scripts/controllers/deck.js"></script>
     <script src="scripts/directives/slide.js"></script>
     <script src="scripts/directives/fit.js"></script>
     <script src="scripts/directives/progressbar.js"></script>
     <script src="scripts/services/appdata.js"></script>
+    <script src="scripts/services/config.js"></script>
     <script src="scripts/directives/markdown.js"></script>
     <script src="scripts/directives/bg-img.js"></script>
     <script src="scripts/directives/goto.js"></script>

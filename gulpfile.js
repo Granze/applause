@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     plug = require('gulp-load-plugins')(),
     wiredep = require('wiredep').stream,
     html2js = require('gulp-ng-html2js'),
+    ngConstant = require('gulp-ng-constant'),
     buildFolder = 'presentation',
     srcPaths = {
       scss: 'app/styles/*.scss',
@@ -25,15 +26,21 @@ gulp.task('clean', function() {
     .pipe(plug.clean());
 });
 
+gulp.task('config', function () {
+  gulp.src('app/config.json')
+    .pipe(ngConstant())
+    .pipe(gulp.dest('app/scripts/services'));
+});
+
 gulp.task('styles', function() {
   return gulp.src(srcPaths.scss)
     .pipe(plug.sass())
-    .pipe(plug.autoprefixer('last 1 version'))
+    .pipe(plug.autoprefixer('last 2 version'))
     .pipe(gulp.dest('app/styles'));
 });
 
 gulp.task('scripts', function() {
-  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/templates/presentation.js'])
+  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/templates/presentation.js', '!app/scripts/services/config.js'])
     .pipe(plug.jshint('.jshintrc'))
     .pipe(plug.jshint.reporter(require('jshint-stylish')));
 });
@@ -64,7 +71,7 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('prepare', ['styles', 'scripts'], function() {
+gulp.task('prepare', ['styles', 'scripts', 'config'], function() {
   var jsFilter = plug.filter('**/*.js'),
       cssFilter = plug.filter('**/*.css');
 
@@ -110,7 +117,8 @@ gulp.task('watch', ['connect', 'serve'], function () {
     srcPaths.css,
     srcPaths.scripts,
     srcPaths.images,
-    srcPaths.partials
+    srcPaths.partials,
+    'app/scripts/config.json'
   ]).on('change', function (file) {
     server.changed(file.path);
   });
@@ -120,4 +128,5 @@ gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch(srcPaths.images, ['images']);
   gulp.watch(srcPaths.partials, ['templates']);
   gulp.watch('bower.json', ['wiredep']);
+  gulp.watch('app/config.json', ['config']);
 });

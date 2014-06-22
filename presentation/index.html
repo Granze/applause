@@ -17,9 +17,9 @@
 
       <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
 
-      <div id="slide-count">{{currentSlide}}/{{lastSlide}}</div>
+      <div id="slide-count" ng-show="{{isSlideCountVisible}}">{{currentSlide}}/{{lastSlide}}</div>
 
-      <progress-bar></progress-bar>
+      <progress-bar ng-show="{{isLoadingBarVisible}}"></progress-bar>
 
     </div>
 
