@@ -22,6 +22,9 @@ Anyway, if you want to try it:
 
 When you are done editing, run `gulp`, this will create a "presentation" folder with your compiled slides inside. Enjoy!
 
+##Bower installation:
+`bower install applause`
+
 ##Configuration options:
 
 You need to modify `app > config.json`
