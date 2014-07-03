@@ -7,10 +7,11 @@ HTML presentations powered by AngularJS
 - auto fitting background images
 - credits + autolink
 - clean and simple default theme
+- configurable
 
 ##Demo: http://granze.github.io/applause/
 
-##WARNING: this project is at an early stage of development
+###WARNING: this project is at an early stage of development
 
 Anyway, if you want to try it:
 
@@ -19,4 +20,10 @@ Anyway, if you want to try it:
 - run `gulp watch` to launch the local server and watch your files
 - start creating your slides editing app/views/presentation.html
 
-When you are done editing, run `gulp`, this will create a "presentation" folder with your slides. Enjoy!
+When you are done editing, run `gulp`, this will create a "presentation" folder with your compiled slides inside. Enjoy!
+
+##Configuration options:
+
+You need to modify `app > config.json`
+`loadingBar` : (boolean) Show/hide the loadingBar
+`slideCount` : (boolean) Show/hide the slideCount
