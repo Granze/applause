@@ -26,5 +26,5 @@ When you are done editing, run `gulp`, this will create a "presentation" folder 
 
 You need to modify `app > config.json`
 
-`progressBar` : (boolean) Show/hide the progress bar
-`slideCount` : (boolean) Show/hide the slide count
+- `progressBar` : (boolean) Show/hide the progress bar
+- `slideCount` : (boolean) Show/hide the slide count
