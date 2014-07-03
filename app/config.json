@@ -1,6 +1,7 @@
 {
   "config": {
-    "loadingBar": true,
+    "progressBar": true,
     "slideCount": true
   }
 }
+

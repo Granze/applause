@@ -4,7 +4,7 @@ applause.controller('DeckCtrl', function ($scope, Appdata) {
 
   var config = Appdata.getConfig();
 
-  $scope.isLoadingBarVisible = config.loadingBar;
+  $scope.isProgressBarVisible = config.progressBar;
   $scope.isSlideCountVisible = config.slideCount;
 
   $scope.$watch(function () {

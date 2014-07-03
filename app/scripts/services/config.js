@@ -1,7 +1,7 @@
 angular.module("applauseConfig", [])
 
 .constant("config", {
-	"loadingBar": true,
+	"progressBar": true,
 	"slideCount": true
 })
 

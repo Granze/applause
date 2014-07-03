@@ -10,7 +10,7 @@ applause.factory('Appdata', function (config) {
     currentSlide: currentSlide,
     getConfig: function () {
       return {
-        loadingBar: config.loadingBar,
+        progressBar: config.progressBar,
         slideCount: config.slideCount
       };
     }
