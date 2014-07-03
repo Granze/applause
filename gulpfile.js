@@ -28,7 +28,7 @@ gulp.task('clean', function() {
 
 gulp.task('config', function () {
   gulp.src('app/config.json')
-    .pipe(ngConstant())
+    .pipe(ngConstant({'name': 'applauseConfig'}))
     .pipe(gulp.dest('app/scripts/services'));
 });
 
@@ -99,7 +99,7 @@ gulp.task('connect', function() {
   require('http').createServer(app).listen(9000);
 });
 
-gulp.task('serve', ['connect', 'styles', 'templates'], function () {
+gulp.task('serve', ['connect', 'styles', 'templates', 'config'], function () {
   require('opn')('http://localhost:9000');
 });
 
