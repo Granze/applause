@@ -6,16 +6,32 @@
     "json3": "^3.3.0",
     "es5-shim": "^3.1.1",
     "normalize-scss": "~3.0.1",
-    "angular-animate": "~1.2.16",
-    "angular-highlightjs": "~0.2.7",
+    "angular-animate": "~1.3.0",
     "showdown": "~0.3.1",
-    "angular-sanitize": "~1.2.16"
+    "angular-highlightjs": "0.3.0",
+    "angular-sanitize": "^1.3.0"
   },
   "devDependencies": {
-    "angular-mocks": "^1.3.0",
-    "angular-scenario": "^1.3.0"
+    "angular-mocks": "^1.3.0"
   },
-  "resolutions": {
-    "angular": "^1.3.0"
-  }
+  "homepage": "https://github.com/Granze/applause",
+  "authors": [
+    "Maurizio Mangione <granzebru@gmail.com>"
+  ],
+  "description": "HTML presentations powered by Angular JS",
+  "main": "app/index.html",
+  "keywords": [
+    "slides",
+    "presentations",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
 }
