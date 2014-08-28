@@ -7,13 +7,13 @@ applause.controller('DeckCtrl', function ($scope, Appdata, localStorageService) 
   $scope.isProgressBarVisible = config.progressBar;
   $scope.isSlideCountVisible = config.slideCount;
 
+  localStorageService.clearAll();
+
   $scope.$watch(function () {
     return Appdata;
   }, function (data) {
-    console.log('changed');
     $scope.currentSlide = Appdata.currentSlide;
     $scope.lastSlide = data.slides.length;
-    console.log(typeof Appdata.currentSlide);
   }, true);
 
   $scope.next = function(){

@@ -1,12 +1,9 @@
 'use strict';
 
-applause.factory('Appdata', function (config, localStorageService) {
-
-  localStorageService.clearAll();
-  localStorageService.set('currentSlide', 1);
+applause.factory('Appdata', function (config) {
 
   var slides = [],
-      currentSlide = parseInt(localStorageService.get('currentSlide'));
+      currentSlide = 1;
 
   return {
     slides: slides,
