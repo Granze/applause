@@ -1,6 +1,6 @@
 'use strict';
 
-applause.controller('DeckCtrl', function ($scope, Appdata) {
+applause.controller('DeckCtrl', function ($scope, Appdata, localStorageService) {
 
   var config = Appdata.getConfig();
 
@@ -10,19 +10,21 @@ applause.controller('DeckCtrl', function ($scope, Appdata) {
   $scope.$watch(function () {
     return Appdata;
   }, function (data) {
-    $scope.currentSlide = data.currentSlide;
+    console.log('changed');
+    $scope.currentSlide = Appdata.currentSlide;
     $scope.lastSlide = data.slides.length;
+    console.log(typeof Appdata.currentSlide);
   }, true);
 
   $scope.next = function(){
     if(Appdata.currentSlide < $scope.lastSlide) {
-      Appdata.currentSlide += 1;
+      localStorageService.set('currentSlide', Appdata.currentSlide += 1);
     }
   };
 
   $scope.prev = function(){
     if(Appdata.currentSlide > 1) {
-      Appdata.currentSlide -= 1;
+      localStorageService.set('currentSlide', Appdata.currentSlide -= 1);
     }
   };
 
