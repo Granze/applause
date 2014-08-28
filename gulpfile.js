@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     wiredep = require('wiredep').stream,
     html2js = require('gulp-ng-html2js'),
     ngConstant = require('gulp-ng-constant'),
+    del = require('del'),
     buildFolder = 'presentation',
     srcPaths = {
       scss: 'app/styles/*.scss',
@@ -21,9 +22,8 @@ var gulp = require('gulp'),
       images: buildFolder + '/images'
     };
 
-gulp.task('clean', function() {
-  return gulp.src(buildFolder, {read: false})
-    .pipe(plug.clean());
+gulp.task('clean', function(cb) {
+  del([buildFolder], cb);
 });
 
 gulp.task('config', function () {
@@ -78,7 +78,7 @@ gulp.task('prepare', ['styles', 'scripts', 'config'], function() {
   return gulp.src('app/*.html')
     .pipe(plug.useref.assets('app'))
     .pipe(jsFilter)
-    .pipe(plug.ngmin())
+    .pipe(plug.ngAnnotate())
     .pipe(plug.uglify())
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
