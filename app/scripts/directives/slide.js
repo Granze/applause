@@ -11,7 +11,7 @@ applause.directive('slide', function (Appdata) {
       };
 
   return {
-    template: '<section class="slide" ng-class="{previous: n === currentSlide-1, current: n === currentSlide, next: n === currentSlide+1}" ng-transclude fit></section>',
+    template: '<section class="slide" ng-class="{previous: n === $storage.currentSlide-1, current: n === $storage.currentSlide, next: n === $storage.currentSlide+1}" ng-transclude fit></section>',
     restrict: 'E',
     transclude: true,
     replace: true,

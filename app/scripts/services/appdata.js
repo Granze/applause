@@ -1,14 +1,12 @@
 'use strict';
 
-applause.factory('Appdata', function (config) {
+applause.factory('Appdata', function(config) {
 
-  var slides = [],
-      currentSlide = 1;
+  var slides = [];
 
   return {
     slides: slides,
-    currentSlide: currentSlide,
-    getConfig: function () {
+    getConfig: function() {
       return {
         progressBar: config.progressBar,
         slideCount: config.slideCount

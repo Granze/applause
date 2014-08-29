@@ -1,19 +1,19 @@
 'use strict';
 
-applause.directive('goto', function (Appdata) {
+applause.directive('goto', function(Appdata) {
 
-  var linkFn = function (scope) {
-    scope.goTo = function () {
+  var linkFn = function(scope) {
+    scope.goTo = function() {
       if(isNaN(parseInt(scope.goToSlide))) {
         return false;
       } else {
-        Appdata.currentSlide = parseInt(scope.goToSlide) <= Appdata.slides.length ? parseInt(scope.goToSlide) : Appdata.slides.length;
+        scope.$storage.currentSlide = parseInt(scope.goToSlide) <= Appdata.slides.length ? parseInt(scope.goToSlide) : Appdata.slides.length;
         scope.goToSlide = '';
         scope.showGoTo = false;
       }
     };
   };
-  
+
   return {
     restrict: 'EA',
     template: '<form ng-submit="goTo()" ng-show="showGoTo" id="go-to" name="goto">' +

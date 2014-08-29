@@ -1,30 +1,30 @@
 'use strict';
 
-applause.controller('DeckCtrl', function ($scope, Appdata, localStorageService) {
+applause.controller('DeckCtrl', function($scope, Appdata, $localStorage) {
 
   var config = Appdata.getConfig();
 
   $scope.isProgressBarVisible = config.progressBar;
   $scope.isSlideCountVisible = config.slideCount;
 
-  localStorageService.clearAll();
+  $localStorage.$reset();
+  $scope.$storage = $localStorage.$default({currentSlide: 1});
 
-  $scope.$watch(function () {
+  $scope.$watch(function() {
     return Appdata;
   }, function (data) {
-    $scope.currentSlide = Appdata.currentSlide;
     $scope.lastSlide = data.slides.length;
   }, true);
 
   $scope.next = function(){
-    if(Appdata.currentSlide < $scope.lastSlide) {
-      localStorageService.set('currentSlide', Appdata.currentSlide += 1);
+    if($scope.$storage.currentSlide < $scope.lastSlide) {
+      $scope.$storage.currentSlide = $scope.$storage.currentSlide += 1;
     }
   };
 
   $scope.prev = function(){
-    if(Appdata.currentSlide > 1) {
-      localStorageService.set('currentSlide', Appdata.currentSlide -= 1);
+    if($scope.$storage.currentSlide > 1) {
+      $scope.$storage.currentSlide = $scope.$storage.currentSlide -= 1;
     }
   };
 
