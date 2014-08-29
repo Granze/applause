@@ -10,7 +10,7 @@
     "showdown": "~0.3.1",
     "angular-highlightjs": "0.3.0",
     "angular-sanitize": "^1.3.0",
-    "angular-local-storage": "~0.0.7"
+    "ngstorage": "~0.3.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
@@ -34,5 +34,8 @@
     "app/bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions": {
+    "angular": "^1.3.0"
+  }
 }
