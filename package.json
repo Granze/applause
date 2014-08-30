@@ -1,6 +1,6 @@
 {
   "name": "applause",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Granze/applause"
@@ -12,6 +12,7 @@
     "del": "^0.1.2",
     "gulp": "^3.8.1",
     "gulp-autoprefixer": "0.0.7",
+    "gulp-bump": "^0.1.11",
     "gulp-cache": "^0.1.11",
     "gulp-csso": "^0.2.9",
     "gulp-filter": "^0.4.1",

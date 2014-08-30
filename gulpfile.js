@@ -22,11 +22,17 @@ var gulp = require('gulp'),
       images: buildFolder + '/images'
     };
 
+gulp.task('bump', function(){
+  gulp.src(['./bower.json', './package.json'])
+    .pipe(plug.bump({type:'minor'}))
+    .pipe(gulp.dest('./'));
+});
+
 gulp.task('clean', function(cb) {
   del([buildFolder], cb);
 });
 
-gulp.task('config', function () {
+gulp.task('config', function() {
   gulp.src('app/config.json')
     .pipe(ngConstant({'name': 'applauseConfig'}))
     .pipe(gulp.dest('app/scripts/services'));
@@ -57,7 +63,7 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('app/scripts/templates'));
 });
 
-gulp.task('wiredep', function () {
+gulp.task('wiredep', function() {
   gulp.src(srcPaths.scss)
     .pipe(wiredep({
       directory: srcPaths.bower
@@ -99,17 +105,17 @@ gulp.task('connect', function() {
   require('http').createServer(app).listen(9000);
 });
 
-gulp.task('serve', ['connect', 'styles', 'templates', 'config'], function () {
+gulp.task('serve', ['connect', 'styles', 'templates', 'config'], function() {
   require('opn')('http://localhost:9000');
 });
 
 gulp.task('build', ['prepare', 'images', 'templates']);
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', ['clean'], function() {
   gulp.start('build');
 });
 
-gulp.task('watch', ['connect', 'serve'], function () {
+gulp.task('watch', ['connect', 'serve'], function() {
   var server = plug.livereload();
 
   gulp.watch([
