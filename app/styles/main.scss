@@ -34,8 +34,22 @@ body {
   padding: 30px;
   background-color: $almostWhite;
   transition: all .6s ease;
+  &.preview {
+    left: 100%;
+    top: 40px;
+  }
   &.current {
     left: 50%;
+    &.preview {
+      left: 40px;
+      top: 40px;
+    }
+  }
+  &.next {
+    &.preview {
+      left: 50%;
+      top: 40px;
+    }
   }
 }
 

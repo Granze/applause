@@ -6,6 +6,7 @@ applause.factory('Appdata', function(config) {
 
   return {
     slides: slides,
+    isPreviewMode: document.location.search === '?preview',
     getConfig: function() {
       return {
         progressBar: config.progressBar,
