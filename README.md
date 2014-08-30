@@ -2,12 +2,13 @@
 HTML presentations powered by AngularJS
 
 ##Features:
+- preview mode
 - code highligthing
 - markdown support
 - auto fitting background images
 - credits + autolink
 - clean and simple default theme
-- configurable
+- configurable via JSON file
 
 ##Demo: http://granze.github.io/applause/
 
