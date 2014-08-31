@@ -2,11 +2,11 @@
 HTML presentations powered by AngularJS
 
 ##Features:
-- preview mode
+- presenter mode
 - code highligthing
 - markdown support
 - auto fitting background images
-- credits + autolink
+- credits + autolink helper
 - clean and simple default theme
 - configurable via JSON file
 
@@ -29,6 +29,8 @@ When you are done editing, run `gulp`, this will create a "presentation" folder 
 ##Configuration options:
 
 You need to modify `app > config.json`
+
+Available options:
 
 - `progressBar` : (boolean) Show/hide the progress bar
 - `slideCount` : (boolean) Show/hide the slide count
