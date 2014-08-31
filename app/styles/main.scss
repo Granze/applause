@@ -20,6 +20,15 @@ body {
   background: $mainBg;
 }
 
+table {
+  width: 100%;
+  tr {
+    th, td {
+      padding: 10px;
+    }
+  }
+}
+
 #deck {
   position: relative;
 }
