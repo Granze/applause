@@ -54,7 +54,8 @@ gulp.task('scripts', function() {
 
 gulp.task('images', function() {
   return gulp.src(srcPaths.images)
-    .pipe($.cache($.imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe($.changed(destPaths.images))
+    .pipe($.imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest(destPaths.images));
 });
 
