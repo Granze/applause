@@ -23,6 +23,8 @@
 
       <div class="container" ng-include="'views/presentation.html'">loading slides...</div>
 
+      <flip-clock></flip-clock>
+
       <div id="slide-count" ng-show="{{isSlideCountVisible}}">{{$storage.currentSlide}}/{{lastSlide}}</div>
 
       <progress-bar ng-show="{{isProgressBarVisible}}"></progress-bar>
@@ -39,16 +41,16 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/showdown/src/showdown.js"></script>
     <script src="bower_components/highlightjs/highlight.pack.js"></script>
     <script src="bower_components/angular-highlightjs/angular-highlightjs.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js scripts/scripts.js -->
-    <script src="bower_components/showdown/src/showdown.js"></script>
-    <script src="scripts/app.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/templates/presentation.js"></script>
     <script src="scripts/controllers/deck.js"></script>
@@ -60,6 +62,7 @@
     <script src="scripts/directives/markdown.js"></script>
     <script src="scripts/directives/bg-img.js"></script>
     <script src="scripts/directives/goto.js"></script>
+    <script src="scripts/directives/flip-clock.js"></script>
     <!-- endbuild -->
   </body>
 </html>

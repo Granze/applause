@@ -2,16 +2,12 @@
 
 applause.factory('Appdata', function(config) {
 
-  var slides = [];
-
-  return {
-    slides: slides,
-    isPreviewMode: document.location.search === '?preview',
-    getConfig: function() {
-      return {
-        progressBar: config.progressBar,
-        slideCount: config.slideCount
+  var slides = [],
+      configObj = angular.fromJson(config),
+      appObj = {
+        slides: slides,
+        isPreviewMode: document.location.search === '?preview'
       };
-    }
-  };
+
+  return angular.extend(configObj, appObj);
 });

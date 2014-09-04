@@ -47,7 +47,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/templates/presentation.js', '!app/scripts/services/config.js'])
+  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/templates/*.js', '!app/scripts/services/config.js'])
     .pipe($.jshint('.jshintrc'))
     .pipe($.jshint.reporter(require('jshint-stylish')));
 });
