@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     reload = browserSync.reload,
     buildFolder = 'presentation',
     srcPaths = {
-      scss: 'app/styles/*.scss',
+      scss: ['app/styles/*.scss','app/themes/**/*.scss'],
       css: 'app/styles/main.css',
       scripts: 'app/scripts/{,*/}*.js',
       images: 'app/images/*.*',
