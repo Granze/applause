@@ -35,4 +35,4 @@ Available options:
 - `progressBar` : (boolean) Show/hide the progress bar | true
 - `slideCount` : (boolean) Show/hide the slide count | true
 - `counter` : (boolean) Show/hide the counter/countdown in presenter mode | true
-- `countdownFrom` : (number) Set the minutes for the countdown. If set to 0 the clock act like a counter instead of a countdown | 20
+- `startFrom` : (number) Set the minutes for the countdown. If set to 0 the clock act like a counter instead of a countdown | 20
