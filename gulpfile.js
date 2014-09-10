@@ -4,11 +4,13 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     wiredep = require('wiredep').stream,
     del = require('del'),
+    config = require('./app/config.json').config,
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     buildFolder = 'presentation',
     srcPaths = {
-      scss: ['app/styles/*.scss','app/themes/**/*.scss'],
+      scss: 'app/styles/main.scss',
+      theme: 'app/styles/' + config.theme + '*.scss',
       css: 'app/styles/main.css',
       scripts: 'app/scripts/{,*/}*.js',
       images: 'app/images/*.*',
@@ -39,9 +41,10 @@ gulp.task('config', function() {
 });
 
 gulp.task('styles', function() {
-  return gulp.src(srcPaths.scss)
-    .pipe($.sass())
+  return gulp.src([srcPaths.scss, srcPaths.theme])
+    .pipe($.sass({errLogToConsole: true}))
     .pipe($.autoprefixer('last 2 version'))
+    .pipe($.concat('main.css'))
     .pipe(gulp.dest('app/styles'))
     .pipe(reload({stream:true}));
 });
@@ -114,7 +117,7 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('watch', ['main'], function() {
-  gulp.watch(srcPaths.scss, ['styles']);
+  gulp.watch([srcPaths.scss, srcPaths.theme], ['styles']);
   gulp.watch(srcPaths.scripts, ['scripts', browserSync.reload]);
   gulp.watch(srcPaths.images, ['images', browserSync.reload]);
   gulp.watch(srcPaths.partials, ['templates', browserSync.reload]);
