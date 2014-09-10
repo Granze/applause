@@ -19,22 +19,22 @@ $mainTxtColor: #333;
 
 @font-face {
   font-family: 'montserrat';
-  src: url('../../fonts/montserrat-bold-webfont.eot');
-  src: url('../../fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../../fonts/montserrat-bold-webfont.woff') format('woff'),
-  url('../../fonts/montserrat-bold-webfont.ttf') format('truetype'),
-  url('../../fonts/montserrat-bold-webfont.svg#montserrat') format('svg');
+  src: url('../fonts/montserrat-bold-webfont.eot');
+  src: url('../fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/montserrat-bold-webfont.woff') format('woff'),
+  url('../fonts/montserrat-bold-webfont.ttf') format('truetype'),
+  url('../fonts/montserrat-bold-webfont.svg#montserrat') format('svg');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'montserrat';
-  src: url('../../fonts/montserrat-regular-webfont.eot');
-  src: url('../../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../../fonts/montserrat-regular-webfont.woff') format('woff'),
-  url('../../fonts/montserrat-regular-webfont.ttf') format('truetype'),
-  url('../../fonts/montserrat-regular-webfont.svg#montserrat') format('svg');
+  src: url('../fonts/montserrat-regular-webfont.eot');
+  src: url('../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/montserrat-regular-webfont.woff') format('woff'),
+  url('../fonts/montserrat-regular-webfont.ttf') format('truetype'),
+  url('../fonts/montserrat-regular-webfont.svg#montserrat') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -42,6 +42,21 @@ $mainTxtColor: #333;
 body {
   font-size: 120%;
   font-family: 'montserrat', Helvetica, sans-serif;
+  color: $mainTxtColor;
+  background: $mainBg;
+}
+
+.slide {
+  background-color: $slideBg;
+}
+
+#progress-bar {
+  border-top: 1px solid $progressBorder;
+  background-color: $progressBar;
+}
+
+#slide-count {
+  color: $slideBg;
 }
 
 h1, h2 {

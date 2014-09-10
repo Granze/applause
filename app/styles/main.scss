@@ -1,5 +1,4 @@
-@import '../bower_components/normalize-scss/normalize',
-        '../themes/default/theme';
+@import '../bower_components/normalize-scss/normalize';
 
 //variables
 $slideWidth: 1024px;
@@ -13,8 +12,6 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  color: $mainTxtColor;
-  background: $mainBg;
 }
 
 table {
@@ -38,7 +35,6 @@ table {
   height: $slideHeight;
   width: $slideWidth;
   padding: 30px;
-  background-color: $slideBg;
   transition: all .6s ease;
   &.preview {
     left: 100%;
@@ -97,8 +93,6 @@ table {
   bottom: 0;
   height: 8px;
   transition: width .5s ease;
-  border-top: 1px solid $progressBorder;
-  background-color: $progressBar;
 }
 
 #slide-count {
@@ -108,8 +102,6 @@ table {
   margin: 0;
   padding: 5px 10px;
   letter-spacing: .2em;
-  color: $slideBg;
-  background-color: lighten($mainBg, 10);
 }
 
 .abs-center {
