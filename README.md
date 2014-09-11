@@ -19,7 +19,7 @@ Anyway, if you want to try it:
 - clone the project and `cd` into the folder
 - from your terminal run `npm install && bower install`
 - run `gulp watch` to launch the local server and watch your files
-- start creating your slides editing app/views/presentation.html
+- start creating your slides editing `slides.html`
 
 When you are done editing, run `gulp`, this will create a "presentation" folder with your compiled slides inside. Enjoy!
 
@@ -28,7 +28,7 @@ When you are done editing, run `gulp`, this will create a "presentation" folder 
 
 ##Configuration options:
 
-You need to modify `app > config.json`
+You need to modify `config.json`
 
 Available options:
 
@@ -38,3 +38,4 @@ Available options:
 | slideCount  | boolean | true    | Show/hide the slide count                                                                          |
 | counter     | boolean | true    | Show/hide the counter/countdown in presenter mode                                                  |
 | startFrom   | number  | 20      | Set the minutes for the countdown. If set to 0 the clock act like a counter instead of a countdown |
+| theme       | string  | default | Choose the theme to use                                                                            |

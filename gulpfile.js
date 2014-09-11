@@ -15,7 +15,7 @@ var gulp = require('gulp'),
       scripts: 'scripts/{,*/}*.js',
       images: 'images/*.*',
       html: 'index.html',
-      partials: 'views/*.html',
+      slides: 'slides.html',
       bower: 'bower_components'
     },
     destPaths = {
@@ -63,8 +63,8 @@ gulp.task('images', function() {
 });
 
 gulp.task('templates', function() {
-  return gulp.src(srcPaths.partials)
-    .pipe($.ngHtml2js({moduleName: 'applauseTemplates', prefix: 'views/'}))
+  return gulp.src(srcPaths.slides)
+    .pipe($.ngHtml2js({moduleName: 'applauseTemplates'}))
     .pipe(gulp.dest('scripts/templates'));
 });
 
@@ -75,14 +75,19 @@ gulp.task('wiredep', function() {
     }))
     .pipe(gulp.dest('styles'));
 
-  gulp.src('*.html')
+  gulp.src('index.html')
     .pipe(wiredep({
       directory: srcPaths.bower
     }))
     .pipe(gulp.dest('/'));
 });
 
-gulp.task('prepare', ['styles', 'scripts', 'config'], function() {
+gulp.task('fonts', function () {
+  gulp.src('fonts/*.*')
+    .pipe(gulp.dest(buildFolder + '/fonts'));
+});
+
+gulp.task('prepare', ['styles', 'scripts', 'config', 'fonts'], function() {
   var jsFilter = $.filter('**/*.js'),
       cssFilter = $.filter('**/*.css');
 

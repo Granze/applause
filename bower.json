@@ -15,8 +15,12 @@
   },
   "homepage": "https://github.com/Granze/applause",
   "authors": [
-    "Maurizio Mangione <granzebru@gmail.com>"
+    "Maurizio Mangione <granzebru@gmail.com> (http://granze.net)"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Granze/applause.git"
+  },
   "description": "HTML presentations powered by Angular JS",
   "main": "index.html",
   "keywords": [
@@ -28,7 +32,10 @@
   "ignore": [
     "node_modules",
     "bower_components",
-    "presentation"
+    "presentation",
+    ".editorconfig",
+    ".jshintrc",
+    "slides.html"
   ],
   "overrides": {
     "showdown": {
