@@ -1,0 +1,83 @@
+<slide>
+  <h1>Applause</h1>
+  <h4>HTML presentations powered by Angular JS</h4>
+  <ul>
+    <li>Simple and clean</li>
+    <li>Fully customizable</li>
+    <li>Useful helpers</li>
+    <li>Keyboard shortcuts
+      <ol>
+        <li><span class="key light-keys">&#9658;</span> or <span class="key light-keys">space</span> next slide</li>
+        <li><span class="key light-keys">&#9668;</span> previous  slide</li>
+        <li><span class="key light-keys">esc</span> toggle "go to" popup</li>
+      </ol>
+    </li>
+  </ul>
+</slide>
+
+<slide>
+  <h2>Why another presentation framework?</h2>
+  <p>There are plenty of presentation frameworks made with HTML, CSS and Javascript around. So why we need another one?</p>
+  <p>We probably don't. I've started this project just because I wanted to improve my Angular JS skills.</p>
+  <blockquote><code class="inline">blockquote</code> Lorem ipsum dolor sit amet, consectetur adipisicing elit</blockquote>
+</slide>
+
+<slide>
+  <h2>Presenter mode</h2>
+  <table>
+    <tr>
+      <th>Normal view</th>
+      <th>Presenter mode</th>
+    </tr>
+    <tr>
+      <td><img src="images/slide-single.gif" alt=""/></td>
+      <td><img src="images/slide-presenter.gif" alt=""/></td>
+    </tr>
+  </table>
+  <p>In presenter mode, you can see the current and the upcoming slide.</p>
+  <p>To enter presenter mode, you just need to attach <code class="inline">?preview</code> in your URL. <a href="?preview">Try it out!</a></p>
+  <p>Slides are synchronized between tabs.</p>
+</slide>
+
+<slide>
+  <h2>Code highlighting</h2>
+  <div hljs>
+    applause.directive('slide', function (Appdata) {
+      return {
+        template: '<section class="slide" ng-transclude=""></section>',
+        restrict: 'EA',
+        transclude: true,
+        replace: true,
+        scope: {}
+      };
+    });
+  </div>
+  <p>You just need to add the "hljs" attribute to your element: <code class="inline">&lt;div <strong>hljs</strong>&gt;your code here&lt;/div&gt;</code></p>
+</slide>
+
+<slide markdown>
+  ##Markdown content
+
+  write your slide in markdown if you like it
+
+- list item **one**
+- list item *two*
+
+Add the "markdown" attribute to the slide element `<code class="inline">&lt;slide <strong>markdown</strong>&gt;</code>`
+</slide>
+
+<slide bg-img="oscar.jpg" credits="TIME & LIFE Pictures http://life.time.com/?attachment_id=11373">
+  <h2 class="left">Auto fitting images</h2>
+  <p class="light-text">Add the "bg-img" attribute to your slide element:<br><code class="inline">&lt;slide <strong>bg-img</strong>="path/to/image"&gt;</code><br>without worrying about the image size.</p>
+  <p class="light-text">You can add credits too (with autolink)<br><code class="inline">&lt;slide bg.img="..." <strong>credits</strong>="..."&gt;</code></p>
+</slide>
+
+<slide>
+  <h3 class="abs-center">Add<br>class="abs-center"<br>to an item to center it</h3>
+</slide>
+
+<slide>
+  <h1>Do you like that?</h1>
+  <img class="center media" src="images/slow-clap.gif" alt=""/>
+  <p class="center">Follow me on twitter <a href="https://twitter.com/granze">@granze</a></p>
+</slide>
