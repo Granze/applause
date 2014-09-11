@@ -4,17 +4,19 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     wiredep = require('wiredep').stream,
     del = require('del'),
+    config = require('./config.json').config,
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     buildFolder = 'presentation',
     srcPaths = {
-      scss: 'app/styles/*.scss',
-      css: 'app/styles/main.css',
-      scripts: 'app/scripts/{,*/}*.js',
-      images: 'app/images/*.*',
-      html: 'app/index.html',
-      partials: 'app/views/*.html',
-      bower: 'app/bower_components'
+      scss: 'styles/main.scss',
+      theme: 'styles/' + config.theme + '*.scss',
+      css: 'styles/main.css',
+      scripts: 'scripts/{,*/}*.js',
+      images: 'images/*.*',
+      html: 'index.html',
+      slides: 'slides.html',
+      bower: 'bower_components'
     },
     destPaths = {
       styles: buildFolder + '/styles',
@@ -33,21 +35,22 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('config', function() {
-  gulp.src('app/config.json')
+  gulp.src('config.json')
     .pipe($.ngConstant({'name': 'applauseConfig'}))
-    .pipe(gulp.dest('app/scripts/services'));
+    .pipe(gulp.dest('scripts/services'));
 });
 
 gulp.task('styles', function() {
-  return gulp.src(srcPaths.scss)
-    .pipe($.sass())
+  return gulp.src([srcPaths.scss, srcPaths.theme])
+    .pipe($.sass({errLogToConsole: true}))
     .pipe($.autoprefixer('last 2 version'))
-    .pipe(gulp.dest('app/styles'))
+    .pipe($.concat('main.css'))
+    .pipe(gulp.dest('styles'))
     .pipe(reload({stream:true}));
 });
 
 gulp.task('scripts', function() {
-  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!app/scripts/templates/*.js', '!app/scripts/services/config.js'])
+  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!scripts/templates/*.js', '!scripts/services/config.js'])
     .pipe($.jshint('.jshintrc'))
     .pipe($.jshint.reporter(require('jshint-stylish')));
 });
@@ -60,9 +63,9 @@ gulp.task('images', function() {
 });
 
 gulp.task('templates', function() {
-  return gulp.src(srcPaths.partials)
-    .pipe($.ngHtml2js({moduleName: 'applauseTemplates', prefix: 'views/'}))
-    .pipe(gulp.dest('app/scripts/templates'));
+  return gulp.src(srcPaths.slides)
+    .pipe($.ngHtml2js({moduleName: 'applauseTemplates'}))
+    .pipe(gulp.dest('scripts/templates'));
 });
 
 gulp.task('wiredep', function() {
@@ -70,21 +73,26 @@ gulp.task('wiredep', function() {
     .pipe(wiredep({
       directory: srcPaths.bower
     }))
-    .pipe(gulp.dest('app/styles'));
+    .pipe(gulp.dest('styles'));
 
-  gulp.src('app/*.html')
+  gulp.src('index.html')
     .pipe(wiredep({
       directory: srcPaths.bower
     }))
-    .pipe(gulp.dest('app'));
+    .pipe(gulp.dest('/'));
 });
 
-gulp.task('prepare', ['styles', 'scripts', 'config'], function() {
+gulp.task('fonts', function () {
+  gulp.src('fonts/*.*')
+    .pipe(gulp.dest(buildFolder + '/fonts'));
+});
+
+gulp.task('prepare', ['styles', 'scripts', 'config', 'fonts'], function() {
   var jsFilter = $.filter('**/*.js'),
       cssFilter = $.filter('**/*.css');
 
-  return gulp.src('app/*.html')
-    .pipe($.useref.assets('app'))
+  return gulp.src('*.html')
+    .pipe($.useref.assets('/'))
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify())
@@ -100,7 +108,7 @@ gulp.task('prepare', ['styles', 'scripts', 'config'], function() {
 gulp.task('browserSync', function() {
   browserSync({
     server: {
-      baseDir: './app'
+      baseDir: './'
     }
   });
 });
@@ -114,10 +122,10 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('watch', ['main'], function() {
-  gulp.watch(srcPaths.scss, ['styles']);
+  gulp.watch([srcPaths.scss, srcPaths.theme], ['styles']);
   gulp.watch(srcPaths.scripts, ['scripts', browserSync.reload]);
   gulp.watch(srcPaths.images, ['images', browserSync.reload]);
   gulp.watch(srcPaths.partials, ['templates', browserSync.reload]);
   gulp.watch('bower.json', ['wiredep', browserSync.reload]);
-  gulp.watch('app/config.json', ['config', browserSync.reload]);
+  gulp.watch('config.json', ['config', browserSync.reload]);
 });

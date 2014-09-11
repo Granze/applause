@@ -1,8 +1,5 @@
 node_modules
-.tmp
 .idea
-app/bower_components
-app/scripts/templates
-app/styles/*.css
-coverage
-dist
+bower_components
+scripts/templates
+styles/*.css
