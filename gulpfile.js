@@ -125,7 +125,7 @@ gulp.task('watch', ['main'], function() {
   gulp.watch([srcPaths.scss, srcPaths.theme], ['styles']);
   gulp.watch(srcPaths.scripts, ['scripts', browserSync.reload]);
   gulp.watch(srcPaths.images, ['images', browserSync.reload]);
-  gulp.watch(srcPaths.partials, ['templates', browserSync.reload]);
+  gulp.watch('slides.html', ['templates', browserSync.reload]);
   gulp.watch('bower.json', ['wiredep', browserSync.reload]);
   gulp.watch('config.json', ['config', browserSync.reload]);
 });
