@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     buildFolder = 'presentation',
     srcPaths = {
       scss: 'styles/main.scss',
-      theme: 'styles/' + config.theme + '*.scss',
+      theme: 'styles/' + config.theme + '*.{scss,css}',
       css: 'styles/main.css',
       scripts: 'scripts/{,*/}*.js',
       images: 'images/*.*',
@@ -53,13 +53,6 @@ gulp.task('scripts', function() {
   return gulp.src([srcPaths.scripts, 'gulpfile.js', '!scripts/templates/*.js', '!scripts/services/config.js'])
     .pipe($.jshint('.jshintrc'))
     .pipe($.jshint.reporter(require('jshint-stylish')));
-});
-
-gulp.task('images', function() {
-  return gulp.src(srcPaths.images)
-    .pipe($.changed(destPaths.images))
-    .pipe($.imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
-    .pipe(gulp.dest(destPaths.images));
 });
 
 gulp.task('templates', function() {
