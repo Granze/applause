@@ -80,6 +80,11 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest(buildFolder + '/fonts'));
 });
 
+gulp.task('images', function() {
+  return gulp.src(srcPaths.images)
+    .pipe(gulp.dest(destPaths.images));
+});
+
 gulp.task('prepare', ['styles', 'scripts', 'config', 'fonts'], function() {
   var jsFilter = $.filter('**/*.js'),
       cssFilter = $.filter('**/*.css');
@@ -117,7 +122,6 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', ['main'], function() {
   gulp.watch([srcPaths.scss, srcPaths.theme], ['styles']);
   gulp.watch(srcPaths.scripts, ['scripts', browserSync.reload]);
-  gulp.watch(srcPaths.images, ['images', browserSync.reload]);
   gulp.watch('slides.html', ['templates', browserSync.reload]);
   gulp.watch('bower.json', ['wiredep', browserSync.reload]);
   gulp.watch('config.json', ['config', browserSync.reload]);
