@@ -164,4 +164,135 @@ table {
   }
 }
 
+/*
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+*/
+
+.hljs {
+  display: block;
+  padding: 0.5em;
+  background: #23241f;
+  color: #f8f8f2;
+  text-align: left;
+}
+
+.hljs-tag {
+  color: #f8f8f2;
+}
+
+.css {
+  .hljs-rules, .hljs-value, .hljs-function .hljs-preprocessor {
+    color: #f8f8f2;
+  }
+}
+
+.hljs-pragma {
+  color: #f8f8f2;
+}
+
+.hljs-strongemphasis, .hljs-strong, .hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet, .hljs-blockquote, .hljs-horizontal_rule, .hljs-number, .hljs-regexp, .alias .hljs-keyword, .hljs-literal, .hljs-hexcolor {
+  color: #ae81ff;
+}
+
+.hljs-tag .hljs-value, .hljs-code, .hljs-title, .css .hljs-class, .hljs-class .hljs-title:last-child {
+  color: #a6e22e;
+}
+
+.hljs-link_url {
+  font-size: 80%;
+}
+
+.hljs-strong, .hljs-strongemphasis {
+  font-weight: bold;
+}
+
+.hljs-emphasis, .hljs-strongemphasis, .hljs-class .hljs-title:last-child {
+  font-style: italic;
+}
+
+.hljs-keyword, .hljs-function, .hljs-change, .hljs-winutils, .hljs-flow, .lisp .hljs-title, .clojure .hljs-built_in, .nginx .hljs-title, .tex .hljs-special, .hljs-header, .hljs-attribute {
+  color: #f92672;
+}
+
+.hljs-symbol {
+  color: #f92672;
+  .hljs-string {
+    color: #f92672;
+  }
+}
+
+.hljs-tag .hljs-title, .hljs-value, .alias .hljs-keyword:first-child {
+  color: #f92672;
+}
+
+.css {
+  .hljs-tag, .unit, .hljs-important {
+    color: #f92672;
+  }
+}
+
+.hljs-function .hljs-keyword, .hljs-class .hljs-keyword:first-child, .hljs-constant, .css .hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-variable, .hljs-params, .hljs-class .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-string, .css .hljs-id, .hljs-subst, .haskell .hljs-type, .ruby .hljs-class .hljs-parent, .hljs-built_in {
+  color: #e6db74;
+}
+
+.django {
+  .hljs-template_tag, .hljs-variable {
+    color: #e6db74;
+  }
+}
+
+.smalltalk .hljs-class, .django .hljs-filter .hljs-argument {
+  color: #e6db74;
+}
+
+.smalltalk {
+  .hljs-localvars, .hljs-array {
+    color: #e6db74;
+  }
+}
+
+.hljs-attr_selector, .hljs-pseudo, .hljs-addition, .hljs-stream, .hljs-envvar {
+  color: #e6db74;
+}
+
+.apache {
+  .hljs-tag, .hljs-cbracket {
+    color: #e6db74;
+  }
+}
+
+.tex .hljs-command, .hljs-prompt, .hljs-link_label, .hljs-link_url {
+  color: #e6db74;
+}
+
+.hljs-comment, .hljs-javadoc, .java .hljs-annotation, .python .hljs-decorator, .hljs-template_comment, .hljs-pi, .hljs-doctype, .hljs-deletion, .hljs-shebang, .apache .hljs-sqbracket, .tex .hljs-formula {
+  color: #75715e;
+}
+
+.coffeescript .javascript, .javascript .xml, .tex .hljs-formula {
+  opacity: 0.5;
+}
+
+.xml {
+  .javascript, .vbscript, .css, .hljs-cdata, .php {
+    opacity: 0.5;
+  }
+}
+
+.php .xml {
+  opacity: 0.5;
+}
+
 
