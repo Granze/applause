@@ -14,7 +14,6 @@ var gulp = require('gulp'),
       css: 'styles/main.css',
       scripts: 'scripts/{,*/}*.js',
       images: 'images/*.*',
-      html: 'index.html',
       slides: 'slides.html',
       bower: 'bower_components'
     },
@@ -50,7 +49,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!scripts/templates/*.js', '!scripts/services/config.js'])
+  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!scripts/templates/*.js', '!scripts/services/config.js', '!scripts/vendor/*.js'])
     .pipe($.jshint('.jshintrc'))
     .pipe($.jshint.reporter(require('jshint-stylish')));
 });
@@ -122,7 +121,7 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', ['main'], function() {
   gulp.watch([srcPaths.scss, srcPaths.theme], ['styles']);
   gulp.watch(srcPaths.scripts, ['scripts', browserSync.reload]);
-  gulp.watch('slides.html', ['templates', browserSync.reload]);
+  gulp.watch(srcPaths.slides, ['templates', browserSync.reload]);
   gulp.watch('bower.json', ['wiredep', browserSync.reload]);
   gulp.watch('config.json', ['config', browserSync.reload]);
 });
