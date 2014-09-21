@@ -471,95 +471,79 @@ table {
       color: #dedede;
       background-color: #333; }
 
-/*
-Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
-*/
-.hljs {
-  display: block;
-  padding: 0.5em;
-  background: #23241f;
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+css-extras+clike+javascript+java+php+coffeescript+scss+bash+c+python+ruby+csharp+go+aspnet+scala+swift+objectivec+apacheconf+git */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+code[class*="language-"], pre[class*="language-"] {
   color: #f8f8f2;
-  text-align: left; }
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
 
-.hljs-tag {
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 0;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em; }
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  background: #272822; }
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em; }
+
+.token.comment, .token.prolog, .token.doctype, .token.cdata {
+  color: slategray; }
+
+.token.punctuation {
   color: #f8f8f2; }
 
-.css .hljs-rules, .css .hljs-value, .css .hljs-function .hljs-preprocessor {
-  color: #f8f8f2; }
+.namespace {
+  opacity: 0.7; }
 
-.hljs-pragma {
-  color: #f8f8f2; }
+.token.property, .token.tag, .token.constant, .token.symbol, .token.deleted {
+  color: #f92672; }
 
-.hljs-strongemphasis, .hljs-strong, .hljs-emphasis {
-  color: #a8a8a2; }
-
-.hljs-bullet, .hljs-blockquote, .hljs-horizontal_rule, .hljs-number, .hljs-regexp, .alias .hljs-keyword, .hljs-literal, .hljs-hexcolor {
+.token.boolean, .token.number {
   color: #ae81ff; }
 
-.hljs-tag .hljs-value, .hljs-code, .hljs-title, .css .hljs-class, .hljs-class .hljs-title:last-child {
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
   color: #a6e22e; }
 
-.hljs-link_url {
-  font-size: 80%; }
-
-.hljs-strong, .hljs-strongemphasis {
-  font-weight: bold; }
-
-.hljs-emphasis, .hljs-strongemphasis, .hljs-class .hljs-title:last-child {
-  font-style: italic; }
-
-.hljs-keyword, .hljs-function, .hljs-change, .hljs-winutils, .hljs-flow, .lisp .hljs-title, .clojure .hljs-built_in, .nginx .hljs-title, .tex .hljs-special, .hljs-header, .hljs-attribute {
-  color: #f92672; }
-
-.hljs-symbol {
-  color: #f92672; }
-  .hljs-symbol .hljs-string {
-    color: #f92672; }
-
-.hljs-tag .hljs-title, .hljs-value, .alias .hljs-keyword:first-child {
-  color: #f92672; }
-
-.css .hljs-tag, .css .unit, .css .hljs-important {
-  color: #f92672; }
-
-.hljs-function .hljs-keyword, .hljs-class .hljs-keyword:first-child, .hljs-constant, .css .hljs-attribute {
-  color: #66d9ef; }
-
-.hljs-variable, .hljs-params, .hljs-class .hljs-title {
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string, .token.variable {
   color: #f8f8f2; }
 
-.hljs-string, .css .hljs-id, .hljs-subst, .haskell .hljs-type, .ruby .hljs-class .hljs-parent, .hljs-built_in {
+.token.atrule, .token.attr-value {
   color: #e6db74; }
 
-.django .hljs-template_tag, .django .hljs-variable {
-  color: #e6db74; }
+.token.keyword {
+  color: #66d9ef; }
 
-.smalltalk .hljs-class, .django .hljs-filter .hljs-argument {
-  color: #e6db74; }
+.token.regex, .token.important {
+  color: #fd971f; }
 
-.smalltalk .hljs-localvars, .smalltalk .hljs-array {
-  color: #e6db74; }
+.token.important {
+  font-weight: bold; }
 
-.hljs-attr_selector, .hljs-pseudo, .hljs-addition, .hljs-stream, .hljs-envvar {
-  color: #e6db74; }
-
-.apache .hljs-tag, .apache .hljs-cbracket {
-  color: #e6db74; }
-
-.tex .hljs-command, .hljs-prompt, .hljs-link_label, .hljs-link_url {
-  color: #e6db74; }
-
-.hljs-comment, .hljs-javadoc, .java .hljs-annotation, .python .hljs-decorator, .hljs-template_comment, .hljs-pi, .hljs-doctype, .hljs-deletion, .hljs-shebang, .apache .hljs-sqbracket, .tex .hljs-formula {
-  color: #75715e; }
-
-.coffeescript .javascript, .javascript .xml, .tex .hljs-formula {
-  opacity: 0.5; }
-
-.xml .javascript, .xml .vbscript, .xml .css, .xml .hljs-cdata, .xml .php {
-  opacity: 0.5; }
-
-.php .xml {
-  opacity: 0.5; }
+.token.entity {
+  cursor: help; }
 
 @font-face {
   font-family: 'lobster';
