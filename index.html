@@ -14,7 +14,7 @@
 
     <div id="presentation" ng-controller="DeckCtrl">
 
-      <goto></goto>
+      <goto class="ph"></goto>
 
       <div class="container" ng-include="'slides.html'">loading slides...</div>
 
@@ -22,7 +22,7 @@
 
       <div id="slide-count" ng-show="{{isSlideCountVisible}}">{{$storage.currentSlide}}/{{lastSlide}}</div>
 
-      <progress-bar ng-show="{{isProgressBarVisible}}"></progress-bar>
+      <progress-bar class="ph" ng-show="{{isProgressBarVisible}}"></progress-bar>
 
     </div>
 
@@ -38,7 +38,6 @@
     <script src="bower_components/moment/moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/templates/slides.js"></script>

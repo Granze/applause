@@ -164,6 +164,26 @@ table {
   }
 }
 
+@media print {
+  @page {
+    margin: 0;
+    padding: 0;
+  }
+  .slide {
+    position: static !important;
+    transform: translate(0, 8%) !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: auto !important;
+    page-break-after: always;
+  }
+
+  #slide-count,
+  .ph {
+    display: none !important;
+  }
+}
+
 /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+css-extras+clike+javascript+java+php+coffeescript+scss+bash+c+python+ruby+csharp+go+aspnet+scala+swift+objectivec+apacheconf+git */
 /**
  * okaidia theme for JavaScript, CSS and HTML
