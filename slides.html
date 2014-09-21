@@ -35,18 +35,18 @@
 
 <slide>
   <h2>Code highlighting</h2>
-  <div hljs>
-    applause.directive('slide', function (Appdata) {
-      return {
-        template: '<section class="slide" ng-transclude=""></section>',
-        restrict: 'EA',
-        transclude: true,
-        replace: true,
-        scope: {}
-      };
-    });
-  </div>
-  <p>You just need to add the "hljs" attribute to your element: <code class="inline">&lt;div <strong>hljs</strong>&gt;your code here&lt;/div&gt;</code></p>
+    <code prism class="language-javascript">
+      applause.directive('slide', function (Appdata) {
+        return {
+          restrict: 'EA',
+          transclude: true,
+          replace: true,
+          scope: {}
+        };
+      });
+    </code>
+  <p>Applause uses <a href="http://prismjs.com/">Prism JS</a> for code highlighting. You need to add the "language-*" class and the "prism" attribute to your element:
+    <br><code class="inline">&lt;div <strong>prism class="language-javascript"</strong>&gt;your code here&lt;/div&gt;</code></p>
 </slide>
 
 <slide markdown>
