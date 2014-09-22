@@ -27,6 +27,15 @@ table {
   position: relative;
 }
 
+.container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
 .slide {
   position: absolute;
   top: 50%;
