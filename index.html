@@ -9,6 +9,15 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script>
+      if( window.location.search.match( /pdf/gi ) ) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'styles/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+      }
+    </script>
   </head>
   <body ng-app="applauseApp" ng-keyup="keyup($event)">
 

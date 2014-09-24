@@ -484,6 +484,8 @@ table {
     margin: 0;
     padding: 0; }
 
+  .container {
+    position: static; }
   .slide {
     position: static !important;
     -webkit-transform: translate(0, 8%) !important;
