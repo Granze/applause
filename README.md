@@ -3,6 +3,7 @@ HTML presentations powered by AngularJS
 
 ##Features:
 - presenter mode
+- PDF export
 - code highligthing
 - markdown support
 - auto fitting background images
@@ -36,3 +37,9 @@ Available options:
 | counter     | boolean | true    | Show/hide the counter/countdown in presenter mode                                                  |
 | startFrom   | number  | 20      | Set the minutes for the countdown. If set to 0 the clock act like a counter instead of a countdown |
 | theme       | string  | default | Choose the theme to use                                                                            |
+
+##NB
+__presenter mode__: it works out of box in Firefox. In Chrome, you need to run the presentation with a webserver (SimpleHTTPServer is enough). Anyway you can use `gulp watch`.
+
+__PDF export__: again, this works in Firefox. In Chrome you need to append to you url `?pdf`. In both cases, you need to set some print options.
+Of course you need to set the layout in landscape. Paper size A4 and 0 margins, background colors and images enabled.
