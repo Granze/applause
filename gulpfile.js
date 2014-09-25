@@ -8,12 +8,14 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     buildFolder = 'presentation',
+    assetsFolder = 'assets',
     srcPaths = {
-      scss: 'styles/main.scss',
-      theme: 'styles/' + config.theme + '*.{scss,css}',
-      css: 'styles/main.css',
-      scripts: 'scripts/{,*/}*.js',
-      images: 'images/*.*',
+      scss: assetsFolder + 'styles/main.scss',
+      theme: assetsFolder + 'styles/' + config.theme + '*.{scss,css}',
+      css: assetsFolder + 'styles/main.css',
+      scripts: assetsFolder + 'scripts/{,*/}*.js',
+      images: assetsFolder + 'images/*.*',
+      fonts: assetsFolder + 'fonts',
       slides: 'slides.html',
       bower: 'bower_components'
     },
@@ -49,15 +51,9 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src([srcPaths.scripts, 'gulpfile.js', '!scripts/templates/*.js', '!scripts/services/config.js', '!scripts/vendor/*.js'])
+  return gulp.src([srcPaths.scripts, 'gulpfile.js', !assetsFolder + 'scripts/services/config.js', !assetsFolder + 'scripts/vendor/*.js'])
     .pipe($.jshint('.jshintrc'))
     .pipe($.jshint.reporter(require('jshint-stylish')));
-});
-
-gulp.task('templates', function() {
-  return gulp.src(srcPaths.slides)
-    .pipe($.ngHtml2js({moduleName: 'applauseTemplates'}))
-    .pipe(gulp.dest('scripts/templates'));
 });
 
 gulp.task('wiredep', function() {
@@ -75,7 +71,7 @@ gulp.task('wiredep', function() {
 });
 
 gulp.task('fonts', function () {
-  gulp.src('fonts/*.*')
+  gulp.src(srcPaths.fonts + '/*.*')
     .pipe(gulp.dest(buildFolder + '/fonts'));
 });
 
@@ -110,15 +106,25 @@ gulp.task('browserSync', function() {
   });
 });
 
-gulp.task('main', ['browserSync', 'styles', 'templates', 'config']);
+gulp.task('tag', function(){
 
-gulp.task('build', ['prepare', 'images', 'templates']);
-
-gulp.task('default', ['clean'], function() {
-  gulp.start('build');
 });
 
-gulp.task('watch', ['main'], function() {
+gulp.task('push', function(){
+
+});
+
+gulp.task('build', ['clean'], function() {
+  gulp.start(['prepare', 'images', 'templates']);
+});
+
+// build, bump, tag, push
+gulp.task('bower', function(){
+  gulp.start(['push']);
+});
+
+gulp.task('watch', function() {
+  gulp.start(['browserSync', 'styles', 'config']);
   gulp.watch([srcPaths.scss, srcPaths.theme], ['styles']);
   gulp.watch(srcPaths.scripts, ['scripts', browserSync.reload]);
   gulp.watch(srcPaths.slides, ['templates', browserSync.reload]);
