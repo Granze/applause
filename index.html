@@ -6,12 +6,13 @@
     <title>Applause - HTML presentations powered by AngularJS</title>
     <meta name="description" content="HTML presentations powered by Angular JS">
     <meta name="viewport" content="width=device-width">
-    <!-- build:css styles/main.css -->
+    <!-- build:css assets/styles/applause.css -->
     <link rel="stylesheet" href="assets/styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="assets/theme/default.css">
     <!-- Chrome print bug. Credits to @hakimel http://goo.gl/rGoUvj -->
     <script>
-      if( window.location.search.match( /pdf/gi ) ) {
+      if( window.location.search.match(/pdf/gi) ) {
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
@@ -22,13 +23,13 @@
   </head>
   <body ng-app="applauseApp" ng-keyup="keyup($event)">
 
-    <div id="presentation" ng-controller="DeckCtrl">
+    <div id="presentation" ng-controller="DeckCtrl" ng-cloak>
 
       <goto class="ph"></goto>
 
       <div class="container">
 
-        <!-- SLIDE START -->
+        <!-- =========== SLIDE =========== -->
 
         <slide>
           <h1>Applause</h1>
@@ -56,8 +57,8 @@
               <th>Presenter mode</th>
             </tr>
             <tr>
-              <td><img src="assets/images/slide-single.gif" alt=""/></td>
-              <td><img src="assets/images/slide-presenter.gif" alt=""/></td>
+              <td><img src="assets/theme/images/slide-single.gif" alt=""/></td>
+              <td><img src="assets/theme/images/slide-presenter.gif" alt=""/></td>
             </tr>
           </table>
           <p>In presenter mode, you can see the current and the upcoming slide.</p>
@@ -67,30 +68,31 @@
 
         <slide>
           <h2>Code highlighting</h2>
-          <code prism class="language-javascript">
-            applause.directive('slide', function (Appdata) {
-            return {
-            restrict: 'EA',
-            transclude: true,
-            replace: true,
-            scope: {}
-            };
-            });
-          </code>
-          <p>Applause uses <a href="http://prismjs.com/">Prism JS</a> for code highlighting. You need to add the "language-*" class and the "prism" attribute to your element:
-            <br><code class="inline">&lt;div <strong>prism class="language-javascript"</strong>&gt;your code here&lt;/div&gt;</code></p>
-        </slide>
+<code prism class="language-javascript">
+  applause.directive('slide', function (Appdata) {
+    return {
+      restrict: 'EA',
+      transclude: true,
+      replace: true,
+      scope: {}
+    };
+  });
 
-        <slide markdown>
-          ##Markdown content
+</code>
+  <p>Applause uses <a href="http://prismjs.com/">Prism JS</a> for code highlighting. You need to add the "language-*" class and the "prism" attribute to your element:
+    <br><code class="inline">&lt;div <strong>prism class="language-javascript"</strong>&gt;your code here&lt;/div&gt;</code></p>
+</slide>
 
-          write your slide in markdown if you like it
+<slide markdown>
+  ##Markdown content
 
-          - list item **one**
-          - list item *two*
+  write your slide in markdown if you like it
 
-          Add the "markdown" attribute to the slide element `<code class="inline">&lt;slide <strong>markdown</strong>&gt;</code>`
-        </slide>
+  - list item **one**
+  - list item *two*
+
+  Add the "markdown" attribute to the slide element `<code class="inline">&lt;slide <strong>markdown</strong>&gt;</code>`
+</slide>
 
         <slide bg-img="oscar.jpg" credits="TIME & LIFE Pictures http://life.time.com/?attachment_id=11373">
           <h2 class="left">Auto fitting images</h2>
@@ -104,11 +106,11 @@
 
         <slide>
           <h1>Do you like that?</h1>
-          <img class="center media" src="assets/images/slow-clap.gif" alt=""/>
+          <img class="center media" src="assets/theme/images/slow-clap.gif" alt=""/>
           <p class="center">Follow me on twitter <a href="https://twitter.com/granze">@granze</a></p>
         </slide>
 
-        <!-- SLIDE END -->
+        <!-- =========== /SLIDE =========== -->
 
       </div>
 
@@ -120,9 +122,8 @@
 
     </div>
 
-    <!-- build:js scripts/scripts.js -->
+    <!-- build:js assets/scripts/applause.js -->
     <script src="assets/scripts/vendor/prism.js"></script>
-    <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -130,15 +131,13 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="bower_components/moment/moment.js"></script>
-    <!-- endbower -->
     <script src="assets/scripts/app.js"></script>
-    <script src="assets/scripts/templates/slides.js"></script>
+    <script src="config.js"></script>
     <script src="assets/scripts/controllers/deck.js"></script>
     <script src="assets/scripts/directives/slide.js"></script>
     <script src="assets/scripts/directives/fit.js"></script>
     <script src="assets/scripts/directives/progressbar.js"></script>
     <script src="assets/scripts/services/appdata.js"></script>
-    <script src="assets/scripts/services/config.js"></script>
     <script src="assets/scripts/directives/markdown.js"></script>
     <script src="assets/scripts/directives/bg-img.js"></script>
     <script src="assets/scripts/directives/goto.js"></script>
