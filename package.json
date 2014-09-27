@@ -16,6 +16,7 @@
     "gulp-concat": "^2.4.1",
     "gulp-csso": "^0.2.9",
     "gulp-filter": "^1.0.2",
+    "gulp-git": "^0.5.1",
     "gulp-if": "^1.2.4",
     "gulp-jshint": "^1.8.4",
     "gulp-load-plugins": "^0.6.0",
