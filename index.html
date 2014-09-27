@@ -6,25 +6,111 @@
     <title>Applause - HTML presentations powered by AngularJS</title>
     <meta name="description" content="HTML presentations powered by Angular JS">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="assets/styles/applause.css">
+    <link rel="stylesheet" href="assets/theme/default.css">
     <!-- Chrome print bug. Credits to @hakimel http://goo.gl/rGoUvj -->
     <script>
-      if( window.location.search.match( /pdf/gi ) ) {
+      if( window.location.search.match(/pdf/gi) ) {
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'styles/pdf.css';
+        link.href = 'assets/styles/pdf.css';
         document.getElementsByTagName('head')[0].appendChild(link);
       }
     </script>
   </head>
   <body ng-app="applauseApp" ng-keyup="keyup($event)">
 
-    <div id="presentation" ng-controller="DeckCtrl">
+    <div id="presentation" ng-controller="DeckCtrl" ng-cloak>
 
       <goto class="ph"></goto>
 
-      <div class="container" ng-include="'slides.html'">loading slides...</div>
+      <div class="container">
+
+        <!-- =========== SLIDE =========== -->
+
+        <slide>
+          <h1>Applause</h1>
+          <h3>HTML presentations powered by Angular JS</h3>
+
+          <div class="key-wrapper">
+            <div><span class="key dark-keys">&#9658;</span> or <span class="key dark-keys">space</span> next slide</div>
+            <div><span class="key dark-keys">&#9668;</span> previous</div>
+            <div><span class="key dark-keys">esc</span> toggle "go to" popup</div>
+          </div>
+        </slide>
+
+        <slide>
+          <h2>Why another presentation framework?</h2>
+          <p>There are plenty of presentation frameworks made with HTML, CSS and Javascript around. So why we need another one?</p>
+          <p>We probably don't. I've started this project just because I wanted to improve my Angular JS skills.</p>
+          <blockquote><code class="inline">blockquote</code> Lorem ipsum dolor sit amet, consectetur adipisicing elit</blockquote>
+        </slide>
+
+        <slide>
+          <h2>Presenter mode</h2>
+          <table>
+            <tr>
+              <th>Normal view</th>
+              <th>Presenter mode</th>
+            </tr>
+            <tr>
+              <td><img src="assets/theme/images/slide-single.gif" alt=""/></td>
+              <td><img src="assets/theme/images/slide-presenter.gif" alt=""/></td>
+            </tr>
+          </table>
+          <p>In presenter mode, you can see the current and the upcoming slide.</p>
+          <p>To enter presenter mode, you just need to attach <code class="inline">?preview</code> in your URL. <a href="?preview">Try it out!</a></p>
+          <p>Slides are synchronized between tabs.</p>
+        </slide>
+
+        <slide>
+          <h2>Code highlighting</h2>
+<code prism class="language-javascript">
+  applause.directive('slide', function (Appdata) {
+    return {
+      restrict: 'EA',
+      transclude: true,
+      replace: true,
+      scope: {}
+    };
+  });
+
+</code>
+  <p>Applause uses <a href="http://prismjs.com/">Prism JS</a> for code highlighting. You need to add the "language-*" class and the "prism" attribute to your element:
+    <br><code class="inline">&lt;div <strong>prism class="language-javascript"</strong>&gt;your code here&lt;/div&gt;</code></p>
+</slide>
+
+<slide markdown>
+  ##Markdown content
+
+  write your slide in markdown if you like it
+
+  - list item **one**
+  - list item *two*
+
+  Add the "markdown" attribute to the slide element `<code class="inline">&lt;slide <strong>markdown</strong>&gt;</code>`
+</slide>
+
+        <slide bg-img="oscar.jpg" credits="TIME & LIFE Pictures http://life.time.com/?attachment_id=11373">
+          <h2 class="left">Auto fitting images</h2>
+          <p class="light-text">Add the "bg-img" attribute to your slide element:<br><code class="inline">&lt;slide <strong>bg-img</strong>="path/to/image"&gt;</code><br>without worrying about the image size.</p>
+          <p class="light-text">You can add credits too (with autolink)<br><code class="inline">&lt;slide bg.img="..." <strong>credits</strong>="..."&gt;</code></p>
+        </slide>
+
+        <slide>
+          <h3 class="abs-center">Add<br>class="abs-center"<br>to an item to center it</h3>
+        </slide>
+
+        <slide>
+          <h1>Do you like that?</h1>
+          <img class="center media" src="assets/theme/images/slow-clap.gif" alt=""/>
+          <p class="center">Follow me on twitter <a href="https://twitter.com/granze">@granze</a></p>
+        </slide>
+
+        <!-- =========== /SLIDE =========== -->
+
+      </div>
 
       <flip-clock></flip-clock>
 
@@ -34,7 +120,6 @@
 
     </div>
 
-    <script src="scripts/vendor.js"></script>
-    <script src="scripts/scripts.js"></script>
+    <script src="assets/scripts/applause.js"></script>
   </body>
 </html>
