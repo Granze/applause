@@ -15,12 +15,6 @@ var gulp = require('gulp'),
       images: assetsFolder + '/images/*.*'
     };
 
-gulp.task('bump', function(){
-  gulp.src(['./bower.json', './package.json'])
-    .pipe($.bump())
-    .pipe(gulp.dest('./'));
-});
-
 gulp.task('clean', function(cb) {
   del([buildFolder], cb);
 });
@@ -83,21 +77,31 @@ gulp.task('browserSync', function() {
   });
 });
 
-gulp.task('tag', function(){
-
+gulp.task('bump', function(){
+  gulp.src(['./bower.json', './package.json'])
+    .pipe($.bump())
+    .pipe(gulp.dest('./'));
 });
 
-gulp.task('push', function(){
+gulp.task('tag', ['bump'], function(){
+  var version = require('./bower.json').version;
+  $.git.tag('v' + version, function(err) {
+    if (err) throw err;
+  });
+});
 
+gulp.task('push', ['tag'], function(){
+  $.git.push('bower', 'master', function(err) {
+    if (err) throw err;
+  });
 });
 
 gulp.task('build', ['clean'], function() {
   gulp.start(['prepare', 'images', 'fonts', 'themeMove']);
 });
 
-// build, bump, tag, push
-gulp.task('bower', function(){
-  gulp.start(['push']);
+gulp.task('bower', ['build'], function(){
+  gulp.start(['tag', 'push']);
 });
 
 gulp.task('watch', function() {
