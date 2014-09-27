@@ -1,0 +1,181 @@
+//variables
+$slideBg: #dedede;
+$mainColor: #bc1952;
+$progressBar: $mainColor;
+$progressBorder: #333;
+$mainBg: #333;
+$mainTxtColor: #333;
+
+@font-face {
+  font-family: 'lobster';
+  src: url('fonts/lobster-webfont.eot');
+  src: url('fonts/lobster-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/lobster-webfont.woff') format('woff'),
+  url('fonts/lobster-webfont.ttf') format('truetype'),
+  url('fonts/lobster-webfont.svg#lobster') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-size: 120%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $mainTxtColor;
+  background: $mainBg;
+}
+
+.slide {
+  background-color: $slideBg;
+}
+
+#progress-bar {
+  border-top: 1px solid $progressBorder;
+  background-color: $progressBar;
+}
+
+#slide-count {
+  color: $slideBg;
+}
+
+h1, h2 {
+  font-family: 'lobster', Georgia, serif;
+  margin: 0 0 .2em 0;
+  text-align: center;
+  color: $mainColor;
+  letter-spacing: .1em;
+}
+
+h4, h5, h6 {
+  margin: 0 0 .2em 0;
+  text-align: center;
+  color: $mainTxtColor;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+  color: $mainTxtColor;
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.light-text {
+  color: $slideBg;
+}
+
+.credits {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  padding: 0 20px 0 10px;
+  font-size: .8em;
+  color: $slideBg;
+  background-color: rgba(#000, .6);
+  a {
+    color: #ccc;
+  }
+}
+
+ul {
+  &.unstyled {
+    list-style: none;
+  }
+  li {
+    line-height: 1.8em;
+  }
+}
+.media {
+  padding: 10px;
+  border: 1px solid darken($slideBg, 10);
+  background-color: #fff;
+}
+
+code {
+  &.inline, [markdown] & {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    font-size: .8em;
+    padding: 2px 7px;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+  }
+}
+
+blockquote {
+  position: relative;
+  padding: 10px 0 0 40px;
+  &:before {
+    content: '“';
+    font-size: 7em;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: darken($slideBg, 20);
+    font-family: Georgia, serif;
+  }
+}
+
+/**
+ * Keys styles based on KEYS.css
+ *
+ * Author:  Michael Hüneburg
+ * Website: http://michaelhue.com/keyscss
+ * License: MIT License (see LICENSE.txt)
+ */
+
+.key-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  > div {
+    margin: 20px 0;
+  }
+}
+
+.key {
+  display: inline-block;
+  min-width: 30px;
+  margin: 0 10px;
+  padding: 10px 12px;
+  font: normal 30px "Lucida Grande", Lucida, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: default;
+  &.dark-keys {
+    background: rgb(80, 80, 80);
+    color: rgb(250, 250, 250);
+    text-shadow: -1px -1px 0 rgb(70, 70, 70);
+    box-shadow: inset 0 0 1px rgb(150, 150, 150), inset 0 -.05em .4em rgb(80, 80, 80), 0 .1em 0 rgb(30, 30, 30), 0 .1em .1em rgba(0, 0, 0, .3);
+  }
+  &.light-keys {
+    background: rgb(250, 250, 250);
+    color:  rgb(50, 50, 50);
+    text-shadow: 0 0 2px rgb(255, 255, 255);
+    box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .3), 0 .1em .11em rgba(0, 0, 0, .8);
+  }
+}
