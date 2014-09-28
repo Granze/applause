@@ -1,0 +1,15 @@
+{
+  "name": "applause",
+  "version": "0.1.10",
+  "authors": [
+    "Maurizio Mangione <granzebru@gmail.com>"
+  ],
+  "description": "HTML presentations powered by Angular JS",
+  "main": "index.html",
+  "keywords": [
+    "slides",
+    "presentations"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Granze/applause"
+}
