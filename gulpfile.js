@@ -51,7 +51,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest('presentation/assets/images'));
 });
 
-gulp.task('themeMove', function() {
+gulp.task('theme', function() {
   gulp.src('assets/theme/**/*.*')
     .pipe(gulp.dest('presentation/assets/theme'));
 });
@@ -78,7 +78,7 @@ gulp.task('browserSync', function() {
 });
 
 gulp.task('bump', function(){
-  gulp.src(['./bower.json', './package.json'])
+  gulp.src(['./bower.json', './package.json', './bower-dist.json'])
     .pipe($.bump())
     .pipe(gulp.dest('./'));
 });
@@ -90,14 +90,20 @@ gulp.task('tag', ['bump'], function(){
   });
 });
 
+gulp.task('bowerDist', function(){
+  gulp.src('bower-dist.json')
+    .pipe($.rename('bower.json'))
+    .pipe(gulp.dest('presentation'));
+});
+
 gulp.task('push', ['tag'], function(){
-  $.git.push('bower', 'master', function(err) {
+  $.git.push('bower', 'master', {args: ' --tags --dry-run'}, function(err) {
     if (err) throw err;
   });
 });
 
 gulp.task('build', ['clean'], function() {
-  gulp.start(['prepare', 'images', 'fonts', 'themeMove']);
+  gulp.start(['prepare', 'images', 'fonts', 'theme']);
 });
 
 gulp.task('bower', ['build'], function(){
