@@ -20,9 +20,9 @@ Anyway, if you want to try it:
 - clone the project and `cd` into the folder
 - from your terminal run `npm install && bower install`
 - run `gulp watch` to launch the local server and watch your files
-- start creating your slides editing `slides.html`
+- start creating your slides editing `index.html`
 
-When you are done editing, run `gulp`, this will create a "presentation" folder with your compiled slides inside. Enjoy!
+When you are done editing, run `gulp build`, this will create a "presentation" folder with your compiled slides inside. Enjoy!
 
 ##Configuration options:
 
@@ -36,7 +36,6 @@ Available options:
 | slideCount  | boolean | true    | Show/hide the slide count                                                                          |
 | counter     | boolean | true    | Show/hide the counter/countdown in presenter mode                                                  |
 | startFrom   | number  | 20      | Set the minutes for the countdown. If set to 0 the clock act like a counter instead of a countdown |
-| theme       | string  | default | Choose the theme to use                                                                            |
 
 ##NB
 __presenter mode__: it works out of box in Firefox. In Chrome, you need to run the presentation with a webserver (SimpleHTTPServer is enough). Anyway you can use `gulp watch`.
