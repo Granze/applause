@@ -1,4 +1,4 @@
-@import '../bower_components/normalize-scss/normalize';
+@import '../../bower_components/normalize-scss/normalize';
 
 //variables
 $slideWidth: 1024px;
@@ -12,6 +12,17 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  animation: fade-in 3s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 table {

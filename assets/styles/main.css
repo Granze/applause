@@ -257,7 +257,7 @@ input {
  */
 input[type="checkbox"], input[type="radio"] {
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
+       box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -337,12 +337,28 @@ td, th {
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+       box-sizing: border-box; }
 
 body {
   overflow: hidden;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  -webkit-animation: fade-in 3s;
+          animation: fade-in 3s; }
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
 
 table {
   width: 100%; }
@@ -369,7 +385,7 @@ table {
   width: 1024px;
   padding: 30px;
   -webkit-transition: all 0.6s ease;
-  transition: all 0.6s ease; }
+          transition: all 0.6s ease; }
   .slide.preview {
     left: 100%;
     top: 40px; }
@@ -400,7 +416,7 @@ table {
     top: -100px; }
   #go-to.ng-hide-remove, #go-to.ng-hide-add {
     -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+            transition: all 0.4s ease;
     display: block !important; }
   #go-to input {
     width: 58px;
@@ -417,7 +433,7 @@ table {
   bottom: 0;
   height: 8px;
   -webkit-transition: width 0.5s ease;
-  transition: width 0.5s ease; }
+          transition: width 0.5s ease; }
 
 #slide-count {
   position: absolute;
@@ -432,7 +448,8 @@ table {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   margin: 0; }
 
 .flip {
@@ -489,7 +506,8 @@ table {
   .slide {
     position: static !important;
     -webkit-transform: translate(0, 8%) !important;
-    transform: translate(0, 8%) !important;
+        -ms-transform: translate(0, 8%) !important;
+            transform: translate(0, 8%) !important;
     left: 0 !important;
     top: 0 !important;
     width: auto !important;
@@ -514,6 +532,7 @@ code[class*="language-"], pre[class*="language-"] {
   word-break: normal;
   line-height: 1.5;
   -moz-tab-size: 2;
+  -o-tab-size: 2;
   tab-size: 2;
   -webkit-hyphens: none;
   -moz-hyphens: none;
@@ -570,144 +589,3 @@ pre[class*="language-"] {
 
 .token.entity {
   cursor: help; }
-
-@font-face {
-  font-family: 'lobster';
-  src: url('../fonts/lobster-webfont.eot');
-  src: url('../fonts/lobster-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/lobster-webfont.woff') format('woff'), url('../fonts/lobster-webfont.ttf') format('truetype'), url('../fonts/lobster-webfont.svg#lobster') format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-body {
-  font-size: 120%;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
-  background: #333; }
-
-.slide {
-  background-color: #dedede; }
-
-#progress-bar {
-  border-top: 1px solid #333;
-  background-color: #bc1952; }
-
-#slide-count {
-  color: #dedede; }
-
-h1, h2 {
-  font-family: 'lobster', Georgia, serif;
-  margin: 0 0 0.2em 0;
-  text-align: center;
-  color: #bc1952;
-  letter-spacing: 0.1em; }
-
-h4, h5, h6 {
-  margin: 0 0 0.2em 0;
-  text-align: center;
-  color: #333; }
-
-h1 {
-  font-size: 4em; }
-
-h2 {
-  font-size: 3em; }
-
-h3 {
-  font-size: 2em;
-  color: #333;
-  text-align: center; }
-
-.center {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center; }
-
-.left {
-  text-align: left; }
-
-.right {
-  text-align: right; }
-
-.light-text {
-  color: #dedede; }
-
-.credits {
-  position: absolute;
-  right: 0;
-  bottom: 20px;
-  padding: 0 20px 0 10px;
-  font-size: 0.8em;
-  color: #dedede;
-  background-color: rgba(0, 0, 0, 0.6); }
-  .credits a {
-    color: #ccc; }
-
-ul.unstyled {
-  list-style: none; }
-ul li {
-  line-height: 1.8em; }
-
-.media {
-  padding: 10px;
-  border: 1px solid #c5c5c5;
-  background-color: #fff; }
-
-code.inline, [markdown] code {
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
-  font-size: 0.8em;
-  padding: 2px 7px;
-  color: #333;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  background-color: #f8f8f8; }
-
-blockquote {
-  position: relative;
-  padding: 10px 0 0 40px; }
-  blockquote:before {
-    content: '“';
-    font-size: 7em;
-    position: absolute;
-    left: -20px;
-    top: -20px;
-    color: #ababab;
-    font-family: Georgia, serif; }
-
-/**
- * Keys styles based on KEYS.css
- *
- * Author:  Michael Hüneburg
- * Website: http://michaelhue.com/keyscss
- * License: MIT License (see LICENSE.txt)
- */
-.key-wrapper {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin: 0; }
-  .key-wrapper > div {
-    margin: 20px 0; }
-
-.key {
-  display: inline-block;
-  min-width: 30px;
-  margin: 0 10px;
-  padding: 10px 12px;
-  font: normal 30px "Lucida Grande", Lucida, Arial, sans-serif;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 4px;
-  border: none;
-  cursor: default; }
-  .key.dark-keys {
-    background: #505050;
-    color: #fafafa;
-    text-shadow: -1px -1px 0 #464646;
-    box-shadow: inset 0 0 1px #969696, inset 0 -0.05em 0.4em #505050, 0 0.1em 0 #1e1e1e, 0 0.1em 0.1em rgba(0, 0, 0, 0.3); }
-  .key.light-keys {
-    background: #fafafa;
-    color: #323232;
-    text-shadow: 0 0 2px white;
-    box-shadow: inset 0 0 1px white, inset 0 0 0.4em #c8c8c8, 0 0.1em 0 #828282, 0 0.11em 0 rgba(0, 0, 0, 0.3), 0 0.1em 0.11em rgba(0, 0, 0, 0.8); }

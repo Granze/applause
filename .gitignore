@@ -1,5 +1,3 @@
-node_modules
 .idea
+node_modules
 bower_components
-scripts/templates
-styles/main.css
