@@ -3,6 +3,5 @@ angular.module('applauseConfig', [])
     "progressBar": true,
     "slideCount": true,
     "counter": true,
-    "startFrom": 20,
-    "theme": 'default'
+    "startFrom": 20
   });
