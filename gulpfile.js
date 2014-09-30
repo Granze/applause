@@ -86,7 +86,11 @@ gulp.task('bump', function(){
 gulp.task('tag', ['bump'], function(){
   var version = require('./bower.json').version;
   $.git.tag('v' + version, function(err) {
-    if (err) throw err;
+    if (err) {
+      throw err;
+    } else {
+      console.log('tag created');
+    }
   });
 });
 
@@ -98,7 +102,11 @@ gulp.task('bowerDist', function(){
 
 gulp.task('push', ['tag'], function(){
   $.git.push('bower', 'master', {args: ' --tags --dry-run'}, function(err) {
-    if (err) throw err;
+    if (err) {
+      throw err;
+    } else {
+      console.log('pushed to repo');
+    }
   });
 });
 
@@ -111,7 +119,7 @@ gulp.task('bower', ['build'], function(){
 });
 
 gulp.task('watch', function() {
-  gulp.start(['browserSync', 'styles', 'theme']);
+  gulp.start(['browserSync', 'styles', 'theme', 'scripts']);
   gulp.watch(srcPaths.scss, ['styles']);
   gulp.watch(srcPaths.theme, ['theme']);
   gulp.watch(srcPaths.scripts, ['scripts', browserSync.reload]);
