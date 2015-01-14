@@ -6,6 +6,7 @@ HTML presentations powered by AngularJS
 - PDF export
 - code highligthing
 - markdown support
+- speakers notes
 - auto fitting background images
 - credits + autolink helper
 - clean and simple default theme
