@@ -69,7 +69,8 @@ table {
         display: block;
         position: absolute;
         left: 0;
-        bottom: -100px;
+        top: 100%;
+        padding-top: 20px;
         color: #ccc;
         font-size: 140%;
       }
