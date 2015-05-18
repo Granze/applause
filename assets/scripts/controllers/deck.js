@@ -1,11 +1,10 @@
 'use strict';
 
-applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootScope) {
+applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootScope, $location) {
 
   $scope.isProgressBarVisible = Appdata.progressBar;
   $scope.isSlideCountVisible = Appdata.slideCount;
 
-  $localStorage.$reset();
   $scope.$storage = $localStorage.$default({currentSlide: 1});
 
   $scope.$watch(function() {
@@ -17,12 +16,14 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootSc
   $scope.next = function(){
     if($scope.$storage.currentSlide < $scope.lastSlide) {
       $scope.$storage.currentSlide = $scope.$storage.currentSlide += 1;
+      $location.path($scope.$storage.currentSlide);
     }
   };
 
   $scope.prev = function(){
     if($scope.$storage.currentSlide > 1) {
       $scope.$storage.currentSlide = $scope.$storage.currentSlide -= 1;
+      $location.path($scope.$storage.currentSlide);
     }
   };
 
@@ -34,8 +35,11 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootSc
     $scope.prev();
   });
 
-  $rootScope.$on('slide.goto', function(e, keyEvent) {
+  $rootScope.$on('slide.showGoTo', function(e, keyEvent) {
     $scope.showGoTo = !$scope.showGoTo;
+  });
 
+  $rootScope.$on('slide.goTo', function(e, targetSlide) {
+    $scope.$storage.currentSlide = parseInt(targetSlide) <= Appdata.slides.length ? parseInt(targetSlide) : Appdata.slides.length;
   });
 });

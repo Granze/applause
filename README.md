@@ -49,3 +49,4 @@ Of course you need to set the layout in landscape. Paper size A4 and 0 margins, 
 ### 0.2.1
 
 - Changed 'gulp watch' in `gulp serve`
+- Added browser navigation (_TO BE empowered!, still missing history)
