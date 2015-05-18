@@ -70,31 +70,33 @@
 
         <slide>
           <h2>Code highlighting</h2>
-<code prism class="language-javascript">
-  applause.directive('slide', function (Appdata) {
-    return {
-      restrict: 'EA',
-      transclude: true,
-      replace: true,
-      scope: {}
-    };
-  });
+            <code prism class="language-javascript">
+              applause.directive('slide', function (Appdata) {
+                return {
+                  restrict: 'EA',
+                  transclude: true,
+                  replace: true,
+                  scope: {}
+                };
+              });
 
-</code>
-  <p>Applause uses <a href="http://prismjs.com/">Prism JS</a> for code highlighting. You need to add the "language-*" class and the "prism" attribute to your element:
-    <br><code class="inline">&lt;div <strong>prism class="language-javascript"</strong>&gt;your code here&lt;/div&gt;</code></p>
-</slide>
+            </code>
+            <p>Applause uses <a href="http://prismjs.com/">Prism JS</a> for code highlighting. You need to add the "language-*" class and the "prism" attribute to your element:
+              <br>
+              <code class="inline">&lt;div <strong>prism class="language-javascript"</strong>&gt;your code here&lt;/div&gt;</code>
+            </p>
+        </slide>
 
-<slide markdown>
-  ##Markdown content
+        <slide markdown>
+          ##Markdown content
 
-  write your slide in markdown if you like it
+          write your slide in markdown if you like it
 
-  - list item **one**
-  - list item *two*
+          - list item **one**
+          - list item *two*
 
-  Add the "markdown" attribute to the slide element `<code class="inline">&lt;slide <strong>markdown</strong>&gt;</code>`
-</slide>
+          Add the "markdown" attribute to the slide element `<code class="inline">&lt;slide <strong>markdown</strong>&gt;</code>`
+        </slide>
 
         <slide bg-img="oscar.jpg" credits="TIME & LIFE Pictures http://life.time.com/?attachment_id=11373">
           <h2 class="left">Auto fitting images</h2>
