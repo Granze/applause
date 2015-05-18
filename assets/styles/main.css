@@ -10,8 +10,8 @@
    ========================================================================== */
 /**
  * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *  user zoom.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
  * 3. Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
  *  `em` units.
  */
@@ -60,7 +60,7 @@ audio:not([controls]) {
 
 /**
  * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
  */
 [hidden], template {
   display: none; }
@@ -74,7 +74,8 @@ a {
   background-color: transparent; }
 
 /**
- * Improve readability when focused and also mouse hovered in all browsers.
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
  */
 a:active, a:hover {
   outline: 0; }
@@ -271,14 +272,13 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *  (include `-moz` to future-proof).
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
  */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  /* 2 */
-  box-sizing: content-box; }
+  box-sizing: content-box;
+  /* 2 */ }
 
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
@@ -367,8 +367,7 @@ table {
   height: 640px;
   width: 1024px;
   padding: 30px;
-  -webkit-transition: all 0.6s ease;
-          transition: all 0.6s ease; }
+  transition: all .6s ease; }
   .slide.preview {
     left: 100%;
     top: 40px; }
@@ -408,8 +407,7 @@ table {
   #go-to.ng-hide {
     top: -100px; }
   #go-to.ng-hide-remove, #go-to.ng-hide-add {
-    -webkit-transition: all 0.4s ease;
-            transition: all 0.4s ease;
+    transition: all .4s ease;
     display: block !important; }
   #go-to input {
     width: 58px;
@@ -425,8 +423,7 @@ table {
   left: 0;
   bottom: 0;
   height: 8px;
-  -webkit-transition: width 0.5s ease;
-          transition: width 0.5s ease; }
+  transition: width .5s ease; }
 
 #slide-count {
   position: absolute;
@@ -434,7 +431,7 @@ table {
   bottom: 20px;
   margin: 0;
   padding: 5px 10px;
-  letter-spacing: 0.2em; }
+  letter-spacing: .2em; }
 
 .abs-center {
   position: absolute;
@@ -465,7 +462,6 @@ table {
       color: #fff;
       box-shadow: 1px 1px 1px #555;
       background-color: #333;
-      background: -webkit-linear-gradient(top, #333 0%, #444 50%, #333 51%, #222 100%);
       background: linear-gradient(to bottom, #333 0%, #444 50%, #333 51%, #222 100%); }
       .flip .clock > span:after {
         content: '';
@@ -535,7 +531,7 @@ code[class*="language-"], pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
   padding: 0;
-  margin: 0.5em 0;
+  margin: .5em 0;
   overflow: auto;
   border-radius: 0.3em; }
 
@@ -544,8 +540,8 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em; }
+  padding: .1em;
+  border-radius: .3em; }
 
 .token.comment, .token.prolog, .token.doctype, .token.cdata {
   color: slategray; }
@@ -554,7 +550,7 @@ pre[class*="language-"] {
   color: #f8f8f2; }
 
 .namespace {
-  opacity: 0.7; }
+  opacity: .7; }
 
 .token.property, .token.tag, .token.constant, .token.symbol, .token.deleted {
   color: #f92672; }
