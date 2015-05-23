@@ -1,6 +1,10 @@
 'use strict';
 
+<<<<<<< HEAD
 applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootScope, $location) {
+=======
+applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $location) {
+>>>>>>> develop
 
   $scope.isProgressBarVisible = Appdata.progressBar;
   $scope.isSlideCountVisible = Appdata.slideCount;
@@ -27,6 +31,7 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootSc
     }
   };
 
+<<<<<<< HEAD
   $rootScope.$on('slide.next', function() {
     $scope.next();
   });
@@ -42,4 +47,20 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootSc
   $rootScope.$on('slide.goTo', function(e, targetSlide) {
     $scope.$storage.currentSlide = parseInt(targetSlide, 10) <= Appdata.slides.length ? parseInt(targetSlide) : Appdata.slides.length;
   });
+=======
+  $scope.$parent.keyup = function(keyEvent) {
+    switch(keyEvent.keyCode) {
+      case 27:
+        $scope.showGoTo = !$scope.showGoTo;
+        break;
+      case 37:
+        $scope.prev();
+        break;
+      case 32:
+      case 39:
+        $scope.next();
+    }
+    $location.path($scope.$storage.currentSlide);
+  };
+>>>>>>> develop
 });

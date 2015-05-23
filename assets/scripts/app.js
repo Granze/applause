@@ -4,12 +4,11 @@
 
 var applause = angular.module('applauseApp', ['ngAnimate', 'ngSanitize', 'ngStorage', 'applauseConfig']);
 
-applause.run(function($location, $localStorage, $rootScope){
+applause.run(function($location, $localStorage){
 	if(!$location.path()){
 		$location.path(1);
 	}
 	else{
-		$localStorage.currentSlide = parseInt($location.path()[1]);
-		$rootScope.$emit('slide.goTo', parseInt($location.path()[1]));
+		$localStorage.currentSlide = parseInt($location.path()[1], 10);
 	}
 });

@@ -44,9 +44,9 @@ __presenter mode__: it works out of box in Firefox. In Chrome, you need to run t
 __PDF export__: again, this works in Firefox. In Chrome you need to append to you url `?pdf`. In both cases, you need to set some print options.
 Of course you need to set the layout in landscape. Paper size A4 and 0 margins, background colors and images enabled.
 
-## Changelog
+##Changelog
 
-### 0.2.1
+###0.2.1
 
-- Changed 'gulp watch' in `gulp serve`
-- Added browser navigation (_TO BE empowered!, still missing history)
+Changed 'gulp watch' in `gulp serve` and added `npm start` script
+Added browser navigation (_TO BE empowered!, still missing history)

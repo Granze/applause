@@ -5,6 +5,9 @@
     "type": "git",
     "url": "https://github.com/Granze/applause"
   },
+  "scripts": {
+    "start": "gulp serve"
+    },
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^1.5.1",
