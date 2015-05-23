@@ -9,13 +9,6 @@ applause.directive('slide', function(Appdata) {
         scope.isPreviewMode = Appdata.isPreviewMode;
         Appdata.data.slides.push({count:count, steps: parseInt(attr.steps, 10) || null});
         count += 1;
-
-        scope.$watch(function() {
-          return Appdata;
-        }, function (app) {
-          // TODO retrieve current slide and activate steps
-          scope.slide = app.data.slides[$parent.$storage.currentSlide];
-        }, true);
       };
 
   return {
