@@ -7,8 +7,15 @@ applause.directive('slide', function(Appdata) {
       linkFn = function(scope, elem, attr) {
         scope.n = count;
         scope.isPreviewMode = Appdata.isPreviewMode;
-        Appdata.slides.push({count:count, steps: parseInt(attr.steps, 10) || null});
+        Appdata.data.slides.push({count:count, steps: parseInt(attr.steps, 10) || null});
         count += 1;
+
+        scope.$watch(function() {
+          return Appdata;
+        }, function (app) {
+          // TODO retrieve current slide and activate steps
+          scope.slide = app.data.slides[$parent.$storage.currentSlide];
+        }, true);
       };
 
   return {

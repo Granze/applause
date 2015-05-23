@@ -9,15 +9,15 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $locati
 
   $scope.$watch(function() {
     return Appdata;
-  }, function (data) {
-    $scope.lastSlide = data.slides.length;
-    $scope.slideList = data.slides;
+  }, function (app) {
+    $scope.lastSlide = app.data.slides.length;
+    $scope.slideList = app.data.slides;
   }, true);
 
   $scope.next = function(){
-    console.log($scope.slideList[$scope.$storage.currentSlide - 1]);
+
     if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 1){
-      $scope.slideList[$scope.$storage.currentSlide - 1].steps -= 1;
+      Appdata.setSteps($scope.$storage.currentSlide - 1, $scope.slideList[$scope.$storage.currentSlide - 1].steps -= 1);
       return;
     }
     if($scope.$storage.currentSlide < $scope.lastSlide) {
