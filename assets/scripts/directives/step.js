@@ -4,7 +4,6 @@ applause.directive('step', function() {
 
   var linkFn = function(scope, elem, attr) {
     scope.thisStep = attr.step;
-    console.log(scope.thisStep);
   };
 
   return {

@@ -46,6 +46,10 @@ Of course you need to set the layout in landscape. Paper size A4 and 0 margins, 
 
 ##Changelog
 
+###0.2.2
+
+Forward Steps
+
 ###0.2.1
 
 Changed 'gulp watch' in `gulp serve` and added `npm start` script
