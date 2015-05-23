@@ -4,10 +4,10 @@ applause.directive('slide', function(Appdata) {
 
   var count = 1,
 
-      linkFn = function(scope) {
+      linkFn = function(scope, elem, attr) {
         scope.n = count;
         scope.isPreviewMode = Appdata.isPreviewMode;
-        Appdata.slides.push(count);
+        Appdata.slides.push({count:count, steps: parseInt(attr.steps, 10) || null});
         count += 1;
       };
 
