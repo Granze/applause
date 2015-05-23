@@ -1,12 +1,14 @@
 'use strict';
 
-applause.controller('DeckCtrl', function($scope, Appdata, $localStorage) {
+applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $location) {
 
   $scope.isProgressBarVisible = Appdata.progressBar;
   $scope.isSlideCountVisible = Appdata.slideCount;
 
-  $localStorage.$reset();
+  // $localStorage.$reset();
   $scope.$storage = $localStorage.$default({currentSlide: 1});
+
+  console.log($scope.$storage, $localStorage);
 
   $scope.$watch(function() {
     return Appdata;
@@ -38,5 +40,6 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage) {
       case 39:
         $scope.next();
     }
+    $location.path($scope.$storage.currentSlide);
   };
 });
