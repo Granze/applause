@@ -16,7 +16,7 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $locati
 
   $scope.next = function(){
 
-    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 1){
+    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 0){
       Appdata.setSteps($scope.$storage.currentSlide - 1, $scope.slideList[$scope.$storage.currentSlide - 1].steps -= 1);
       return;
     }

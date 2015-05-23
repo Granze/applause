@@ -108,10 +108,10 @@
 
         <slide steps="4">
           <h2>Steps</h2>
-          <div ng-show="slideList[$storage.currentSlide - 1].steps <= 4">Step 1</div>
-          <div ng-show="slideList[$storage.currentSlide - 1].steps <= 3">Step 2</div>
-          <div ng-show="slideList[$storage.currentSlide - 1].steps <= 2">Step 3</div>
-          <div ng-show="slideList[$storage.currentSlide - 1].steps <= 1">Step 4</div>
+          <div step="1">Step directive</div>
+          <div step="2">Step directive</div>
+          <div step="3">Step directive</div>
+          <div step="4">Step directive</div>
         </slide>
 
         <slide>
@@ -154,6 +154,7 @@
     <script src="assets/scripts/directives/flip-clock.js"></script>
     <script src="assets/scripts/directives/prism.js"></script>
     <script src="assets/scripts/directives/note.js"></script>
+    <script src="assets/scripts/directives/step.js"></script>
     <!-- endbuild -->
   </body>
 </html>
