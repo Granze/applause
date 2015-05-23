@@ -27,19 +27,19 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $rootSc
     }
   };
 
-  $rootScope.$on('slide.next', function(e, keyEvent) {
+  $rootScope.$on('slide.next', function() {
     $scope.next();
   });
 
-  $rootScope.$on('slide.prev', function(e, keyEvent) {
+  $rootScope.$on('slide.prev', function() {
     $scope.prev();
   });
 
-  $rootScope.$on('slide.showGoTo', function(e, keyEvent) {
+  $rootScope.$on('slide.showGoTo', function() {
     $scope.showGoTo = !$scope.showGoTo;
   });
 
   $rootScope.$on('slide.goTo', function(e, targetSlide) {
-    $scope.$storage.currentSlide = parseInt(targetSlide) <= Appdata.slides.length ? parseInt(targetSlide) : Appdata.slides.length;
+    $scope.$storage.currentSlide = parseInt(targetSlide, 10) <= Appdata.slides.length ? parseInt(targetSlide) : Appdata.slides.length;
   });
 });

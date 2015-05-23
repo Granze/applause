@@ -4,14 +4,14 @@ applause.directive('slide', function($document, $localStorage,$rootScope, Appdat
 
   var count = 1,
 
-      linkFn = function(scope, element, attr) {
+      linkFn = function(scope) {
         scope.n = count;
         scope.isPreviewMode = Appdata.isPreviewMode;
         scope.currentSlide = $localStorage.currentSlide;
 
         scope.$watch(function(){
           return $localStorage.currentSlide;
-        }, function(current, previous){
+        }, function(current){
           scope.currentSlide = current;
         });
 
