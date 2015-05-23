@@ -118,7 +118,7 @@ gulp.task('bower', ['build'], function(){
   gulp.start(['tag', 'push']);
 });
 
-gulp.task('watch', function() {
+gulp.task('serve', function() {
   gulp.start(['browserSync', 'styles', 'theme', 'scripts']);
   gulp.watch(srcPaths.scss, ['styles']);
   gulp.watch(srcPaths.theme, ['theme']);
