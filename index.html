@@ -108,6 +108,22 @@
           <h3 class="abs-center">Add<br>class="abs-center"<br>to an item to center it</h3>
         </slide>
 
+        <slide steps="3">
+          <h2>Steps</h2>
+          <h3>You can have a slide with multiple steps</h3>
+          <div step="1">Split your slide with a simple attribute</div>
+          <br><br>
+          <div step="2">Just add:</div>
+          <div step="3">
+            <pre prims class="language-markup">
+              &lt;slide <strong>steps="2"</strong>&gt;
+                &lt;div step="1"&gt;First Step&lt;/div&gt;
+                &lt;div step="2"&gt;Second Step&lt;/div&gt;
+              &lt;/slide&gt;
+            </pre>
+          </div>
+        </slide>
+
         <slide>
           <h1>Do you like that?</h1>
           <img class="center media" src="assets/theme/images/slow-clap.gif" alt=""/>
@@ -148,6 +164,7 @@
     <script src="assets/scripts/directives/flip-clock.js"></script>
     <script src="assets/scripts/directives/prism.js"></script>
     <script src="assets/scripts/directives/note.js"></script>
+    <script src="assets/scripts/directives/step.js"></script>
     <!-- endbuild -->
   </body>
 </html>
