@@ -1,6 +1,6 @@
 'use strict';
 
-applause.factory('Appdata', function(config, $location) {
+applause.factory('Appdata', function(config, $localStorage, $location) {
 
   var slides = [],
       configObj = angular.fromJson(config),
@@ -12,11 +12,12 @@ applause.factory('Appdata', function(config, $location) {
 
   this.data = angular.extend(configObj, appObj);
   this.setSteps = function(slide, direction){
+    console.log();
     if(direction === 'forward'){
-      slides[slide].currentStep += 1;
+      $localStorage.slideList[slide].currentStep++;
     }
     else{
-      slides[slide].currentStep -= 1;
+      $localStorage.slideList[slide].currentStep--;
     }
   };
 
