@@ -7,7 +7,8 @@ applause.directive('goto', function(Appdata) {
       if(isNaN(parseInt(scope.goToSlide))) {
         return false;
       } else {
-        scope.$storage.currentSlide = parseInt(scope.goToSlide) <= Appdata.slides.length ? parseInt(scope.goToSlide) : Appdata.slides.length;
+        console.log(Appdata.data.slides);
+        scope.$storage.currentSlide = parseInt(scope.goToSlide) <= Appdata.data.slides.length ? parseInt(scope.goToSlide) : Appdata.data.slides.length;
         scope.goToSlide = '';
         scope.showGoTo = false;
       }
