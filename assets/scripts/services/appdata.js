@@ -1,17 +1,24 @@
 'use strict';
 
-applause.factory('Appdata', function(config) {
+applause.factory('Appdata', function(config, $localStorage, $location) {
 
   var slides = [],
       configObj = angular.fromJson(config),
       appObj = {
         slides: slides,
-        isPreviewMode: document.location.search === '?preview',
-        // TODO add current slide
+        isPreviewMode: $location.search().preview
       };
+
+
   this.data = angular.extend(configObj, appObj);
-  this.setSteps = function(slide, step){
-	slides[slide].currentStep += 1;
+  this.setSteps = function(slide, direction){
+    console.log();
+    if(direction === 'forward'){
+      $localStorage.slideList[slide].currentStep++;
+    }
+    else{
+      $localStorage.slideList[slide].currentStep--;
+    }
   };
 
   return this;

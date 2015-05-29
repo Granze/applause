@@ -12,13 +12,19 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $locati
     return Appdata;
   }, function (app) {
     $scope.lastSlide = app.data.slides.length;
-    $scope.slideList = app.data.slides;
+  }, true);
+
+  $scope.$watch(function(){
+    return $localStorage;
+  }, function(storage){
+    $scope.slideList = storage.slideList;
+    $scope.slideList = storage.slideList;
   }, true);
 
   $scope.next = function(){
-
-    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 0){
-      Appdata.setSteps($scope.$storage.currentSlide - 1, $scope.slideList[$scope.$storage.currentSlide - 1].steps -= 1);
+    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 0 && 
+      $scope.slideList[$scope.$storage.currentSlide - 1].currentStep < $scope.slideList[$scope.$storage.currentSlide - 1].steps){
+      Appdata.setSteps($scope.$storage.currentSlide - 1, 'forward');
       return;
     }
     if($scope.$storage.currentSlide < $scope.lastSlide) {
@@ -28,6 +34,10 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $locati
   };
 
   $scope.prev = function(){
+    if($scope.slideList[$scope.$storage.currentSlide - 1].currentStep > 0){
+      Appdata.setSteps($scope.$storage.currentSlide - 1, 'backward');
+      return;
+    }
     if($scope.$storage.currentSlide > 1) {
       $scope.$storage.currentSlide = $scope.$storage.currentSlide -= 1;
       $location.path($scope.$storage.currentSlide);
@@ -36,7 +46,7 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $locati
 
   $scope.$parent.keyup = function(keyEvent) {
     switch(keyEvent.keyCode) {
-      case 27:
+      case 13:
         $scope.showGoTo = !$scope.showGoTo;
         break;
       case 37:

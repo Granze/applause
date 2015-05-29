@@ -11,7 +11,7 @@ applause.directive('fit', function ($window, Appdata) {
           y = $window.innerHeight / slide.clientHeight,
           scale = Math.min(x, y);
 
-      if(Appdata.isPreviewMode) {
+      if(Appdata.data.isPreviewMode) {
         element.css({
           'transformOrigin': '0 0',
           'webkitTransformOrigin': '0 0',
