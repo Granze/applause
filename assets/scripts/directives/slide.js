@@ -6,7 +6,7 @@ applause.directive('slide', function(Appdata) {
 
       linkFn = function(scope, elem, attr) {
         scope.n = count;
-        scope.isPreviewMode = Appdata.isPreviewMode;
+        scope.isPreviewMode = Appdata.data.isPreviewMode;
         Appdata.data.slides.push({count:count, steps: parseInt(attr.steps, 10) || null, currentStep: 0});
         count += 1;
       };

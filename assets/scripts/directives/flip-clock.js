@@ -24,7 +24,7 @@ applause.directive('flipClock', function(Appdata, $timeout, $window) {
         scope.isRunning = false;
         startFrom = Appdata.startFrom;
         scope.time = '000000';
-        scope.isPreviewMode = Appdata.isPreviewMode;
+        scope.isPreviewMode = Appdata.data.isPreviewMode;
         scope.isCounterEnabled = Appdata.counter;
 
         scope.startCount = function() {
