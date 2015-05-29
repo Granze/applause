@@ -10,8 +10,13 @@ applause.factory('Appdata', function(config) {
         // TODO add current slide
       };
   this.data = angular.extend(configObj, appObj);
-  this.setSteps = function(slide, step){
-	slides[slide].currentStep += 1;
+  this.setSteps = function(slide, direction){
+    if(direction === 'forward'){
+      slides[slide].currentStep += 1;
+    }
+    else{
+      slides[slide].currentStep -= 1;
+    }
   };
 
   return this;
