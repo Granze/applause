@@ -13,8 +13,6 @@ applause.directive('markdown', function ($window) {
   var converter = new $window.Showdown.converter(),
       linkFn = function (scope, element) {
         var txt = removeSpaceAround(element.text());
-
-        console.log(txt);
         element.html(converter.makeHtml(txt));
       };
 
