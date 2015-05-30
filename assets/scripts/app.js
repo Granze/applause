@@ -9,6 +9,6 @@ applause.run(function($location, $localStorage){
 		$location.path(1);
 	}
 	else{
-		$localStorage.currentSlide = parseInt($location.path()[1], 10);
+        $localStorage.currentSlide = parseInt($location.path().replace('/',''), 10);
 	}
 });
