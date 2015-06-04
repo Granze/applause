@@ -6,23 +6,24 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $locati
   $scope.isProgressBarVisible = Appdata.progressBar;
   $scope.isSlideCountVisible = Appdata.slideCount;
 
-  $scope.$storage = $localStorage.$default({currentSlide: 1});
 
   $scope.$watch(function() {
     return Appdata;
   }, function (app) {
     $scope.lastSlide = app.data.slides.length;
+    $scope.$storage = $localStorage.$default({currentSlide: 1, slideList: app.data.slides});
   }, true);
 
   $scope.$watch(function(){
     return $localStorage;
   }, function(storage){
-    $scope.slideList = storage.slideList;
-    $scope.slideList = storage.slideList;
+    if(storage){
+      $scope.slideList = storage.slideList;
+    }
   }, true);
 
   $scope.next = function(){
-    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 0 && 
+    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 0 &&
       $scope.slideList[$scope.$storage.currentSlide - 1].currentStep < $scope.slideList[$scope.$storage.currentSlide - 1].steps){
       Appdata.setSteps($scope.$storage.currentSlide - 1, 'forward');
       return;
