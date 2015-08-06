@@ -1,6 +1,6 @@
 'use strict';
 
-applause.directive('fit', function ($window, Appdata) {
+angular.module('applauseApp').directive('fit', function ($window, Appdata) {
 
   var linkFn = function (scope, element) {
 
@@ -15,8 +15,8 @@ applause.directive('fit', function ($window, Appdata) {
         element.css({
           'transformOrigin': '0 0',
           'webkitTransformOrigin': '0 0',
-          'transform': 'scale(' + scale/2 + ')',
-          'webkitTransform': 'scale(' + scale/2 + ')'
+          'transform': 'scale(' + scale / 2 + ')',
+          'webkitTransform': 'scale(' + scale / 2 + ')'
         });
       } else {
         element.css({

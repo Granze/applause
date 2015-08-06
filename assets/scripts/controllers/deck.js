@@ -1,6 +1,6 @@
 'use strict';
 
-applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $location) {
+angular.module('applauseApp').controller('DeckCtrl', function($scope, Appdata, $localStorage, $location) {
 
 
   $scope.isProgressBarVisible = Appdata.progressBar;
@@ -22,7 +22,7 @@ applause.controller('DeckCtrl', function($scope, Appdata, $localStorage, $locati
   }, true);
 
   $scope.next = function(){
-    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 0 && 
+    if($scope.slideList[$scope.$storage.currentSlide - 1].steps > 0 &&
       $scope.slideList[$scope.$storage.currentSlide - 1].currentStep < $scope.slideList[$scope.$storage.currentSlide - 1].steps){
       Appdata.setSteps($scope.$storage.currentSlide - 1, 'forward');
       return;

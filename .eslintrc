@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+
+    "rules": {
+        "quotes": [1, "single"],
+        "camelcase": [1, {"properties": "always"}],
+        "no-underscore-dangle": 0,
+        "eqeqeq": [2, "smart"],
+        "no-alert": 1,
+        "key-spacing": [1, { "beforeColon": false, "afterColon": true }],
+        "indent": [2, 2],
+        "no-irregular-whitespace": 1,
+        "eol-last": 0,
+        "max-nested-callbacks": [2, 4],
+        "comma-spacing": [1, {"before": false, "after": true}],
+        "no-trailing-spaces": [1, { skipBlankLines: true }],
+        "no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
+        "no-console": 1,
+        "no-spaced-func": 1,
+        "no-mixed-requires": [0]
+    },
+    "globals" :{
+        "angular": true
+    }
+}

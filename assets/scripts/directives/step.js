@@ -1,13 +1,12 @@
 'use strict';
 
-applause.directive('step', function(Appdata) {
+angular.module('applauseApp').directive('step', function(Appdata) {
 
   var linkFn = function(scope, elem, attr) {
     scope.thisStep = attr.step;
-     if(Appdata.data.isPreviewMode) {
+    if(Appdata.data.isPreviewMode) {
       scope.isPreview = true;
-      console.log(scope.isPreview);
-     }
+    }
   };
 
   return {

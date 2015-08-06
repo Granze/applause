@@ -1,6 +1,6 @@
 'use strict';
 
-applause.directive('flipClock', function(Appdata, $timeout, $window) {
+angular.module('applauseApp').directive('flipClock', function(Appdata, $timeout, $window) {
 
   var linkFn = function(scope) {
 
@@ -21,38 +21,38 @@ applause.directive('flipClock', function(Appdata, $timeout, $window) {
             }
           }
         };
-        scope.isRunning = false;
-        startFrom = Appdata.startFrom;
-        scope.time = '000000';
-        scope.isPreviewMode = Appdata.data.isPreviewMode;
-        scope.isCounterEnabled = Appdata.counter;
+    scope.isRunning = false;
+    startFrom = Appdata.startFrom;
+    scope.time = '000000';
+    scope.isPreviewMode = Appdata.data.isPreviewMode;
+    scope.isCounterEnabled = Appdata.counter;
 
-        scope.startCount = function() {
-          if(!timer) {
-            timer = moment().hours(0).minutes(startFrom || 0).seconds(0);
-          }
-          scope.isRunning = true;
+    scope.startCount = function() {
+      if(!timer) {
+        timer = moment().hours(0).minutes(startFrom || 0).seconds(0);
+      }
+      scope.isRunning = true;
 
-          if(startFrom > 0) {
-            createCountdown();
-          } else {
-            createTimer();
-          }
-        };
-        scope.stopCount = function() {
-          scope.isRunning = false;
-        };
-        scope.resetCount = function() {
-          scope.isRunning = false;
-          scope.time = startFrom ? '00' + startFrom + '00' : '000000';
-          timer = null;
-        };
+      if(startFrom > 0) {
+        createCountdown();
+      } else {
+        createTimer();
+      }
+    };
+    scope.stopCount = function() {
+      scope.isRunning = false;
+    };
+    scope.resetCount = function() {
+      scope.isRunning = false;
+      scope.time = startFrom ? '00' + startFrom + '00' : '000000';
+      timer = null;
+    };
 
-        if(startFrom) {
-          scope.time = '00' + startFrom + '00';
-        } else {
-          scope.time = '000000';
-        }
+    if(startFrom) {
+      scope.time = '00' + startFrom + '00';
+    } else {
+      scope.time = '000000';
+    }
 
   };
 

@@ -1,13 +1,13 @@
 'use strict';
 
-applause.directive('slide', function(Appdata) {
+angular.module('applauseApp').directive('slide', function(Appdata) {
 
   var count = 1,
 
       linkFn = function(scope, elem, attr) {
         scope.n = count;
         scope.isPreviewMode = Appdata.data.isPreviewMode;
-        Appdata.data.slides.push({count:count, steps: parseInt(attr.steps, 10) || null, currentStep: 0});
+        Appdata.data.slides.push({count: count, steps: parseInt(attr.steps, 10) || null, currentStep: 0});
         count += 1;
       };
 
