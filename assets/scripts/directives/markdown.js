@@ -16,7 +16,6 @@ angular.module('applauseApp').directive('markdown', function ($window) {
   /*eslint-enable */
       linkFn = function (scope, element) {
         var txt = removeSpaceAround(element.text());
-
         element.html(converter.makeHtml(txt));
       };
 

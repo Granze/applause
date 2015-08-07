@@ -6,19 +6,22 @@ angular.module('applauseApp').controller('DeckCtrl', function($scope, Appdata, $
   $scope.isProgressBarVisible = Appdata.progressBar;
   $scope.isSlideCountVisible = Appdata.slideCount;
 
-  $scope.$storage = $localStorage.$default({currentSlide: 1});
 
   $scope.$watch(function() {
     return Appdata;
   }, function (app) {
     $scope.lastSlide = app.data.slides.length;
-    $scope.$storage.slideList = app.data.slides;
+
+    $scope.$storage = $localStorage.$default({currentSlide: 1, slideList: app.data.slides});
+
   }, true);
 
   $scope.$watch(function(){
     return $localStorage;
   }, function(storage){
-    $scope.slideList = storage.slideList;
+    if(storage){
+      $scope.slideList = storage.slideList;
+    }
   }, true);
 
   $scope.next = function(){
