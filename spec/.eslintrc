@@ -1,0 +1,20 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "globals" :{
+        "angular": true,
+        "describe": true,
+        "expect": true,
+        "before": true,
+        "beforeEach": true,
+        "inject": true,
+        "it": true,
+        "browser": true,
+        "jasmine": true,
+        "element": false,
+        "by": false
+    }
+}

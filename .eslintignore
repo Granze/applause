@@ -1,0 +1,4 @@
+assets/scripts/vendor/**/*.js
+node_modules/*
+bower_components/*
+presentation/*

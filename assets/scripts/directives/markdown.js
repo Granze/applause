@@ -1,16 +1,22 @@
 'use strict';
 
-applause.directive('markdown', function ($window) {
+angular.module('applauseApp').directive('markdown', function ($window) {
 
-  if (!String.prototype.trim) {
-    String.prototype.trim = function () {
-      return this.replace(/^\s+|\s+$/g, '');
-    };
+  function removeSpaceAround(string){
+    return string.split(/\n/g)
+      .reduce(function(res, item){
+        /*eslint-disable */
+        return res += item.replace(/^\s+|\s+$/gmi, '') + '\n';
+        /*eslint-enable */
+      }, '');
   }
 
+  /*eslint-disable */
   var converter = new $window.Showdown.converter(),
+  /*eslint-enable */
       linkFn = function (scope, element) {
-        element.html(converter.makeHtml(element.text().trim()));
+        var txt = removeSpaceAround(element.text());
+        element.html(converter.makeHtml(txt));
       };
 
   return {

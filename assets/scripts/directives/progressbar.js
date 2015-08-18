@@ -1,6 +1,6 @@
 'use strict';
 
-applause.directive('progressBar', function() {
+angular.module('applauseApp').directive('progressBar', function() {
 
   var linkFn = function(scope, element) {
     scope.$watch(function(data) {

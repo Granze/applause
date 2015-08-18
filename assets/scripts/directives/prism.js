@@ -2,7 +2,7 @@
 
 'use strict';
 
-applause.directive('prism', function() {
+angular.module('applauseApp').directive('prism', function() {
   return {
     restrict: 'A',
     template: '<pre><code ng-transclude></code></pre>',

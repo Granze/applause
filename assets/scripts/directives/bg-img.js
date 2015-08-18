@@ -1,6 +1,6 @@
 'use strict';
 
-applause.directive('bgImg', function ($filter) {
+angular.module('applauseApp').directive('bgImg', function ($filter) {
 
   return function (scope, element, attrs) {
     var imgUrl = '';

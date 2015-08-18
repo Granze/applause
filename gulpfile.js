@@ -24,7 +24,7 @@ gulp.task('styles', function() {
     .pipe($.sass({errLogToConsole: true}))
     .pipe($.autoprefixer('last 2 version'))
     .pipe(gulp.dest(assetsFolder + '/styles'))
-    .pipe(reload({stream:true}));
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('theme', function() {
@@ -32,7 +32,7 @@ gulp.task('theme', function() {
     .pipe($.sass({errLogToConsole: true}))
     .pipe($.autoprefixer('last 2 version'))
     .pipe(gulp.dest(assetsFolder + '/theme'))
-    .pipe(reload({stream:true}));
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('scripts', function() {
@@ -118,7 +118,7 @@ gulp.task('bower', ['build'], function(){
   gulp.start(['tag', 'push']);
 });
 
-gulp.task('watch', function() {
+gulp.task('serve', function() {
   gulp.start(['browserSync', 'styles', 'theme', 'scripts']);
   gulp.watch(srcPaths.scss, ['styles']);
   gulp.watch(srcPaths.theme, ['theme']);
